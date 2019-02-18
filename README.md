@@ -1,3 +1,26 @@
+# Codus Crossfit Client
+
+## Roadmap
+
+### v0.1
+
+- [ ] GraphQL with [Apollo client](https://www.apollographql.com/docs/react/)
+  - [Generating Schema](https://www.apollographql.com/docs/graphql-tools/generate-schema.html#example)
+  - [ ] [Getting Started](https://www.apollographql.com/docs/react/essentials/get-started.html)
+  - [ ] [Typescript](https://www.apollographql.com/docs/react/recipes/static-typing.html)
+  - [ ] [Mocking graphql](https://www.apollographql.com/docs/graphql-tools/mocking.html)
+
+- [ ] Admin Login
+- [ ] CRUD Challenges
+- [ ] CRUD WipChallenges
+  - [ ] challenge_id
+  - [ ] status (enum)
+  - [ ] email
+- [ ] Polir telas
+
+_______
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
