@@ -4,8 +4,12 @@
 
 ### v0.1
 
-- [ ] GraphQL with [Apollo client](https://www.apollographql.com/docs/react/)
-  - [Generating Schema](https://www.apollographql.com/docs/graphql-tools/generate-schema.html#example)
+- [ ] GraphQL with [Apollo client](https://www.apollographql.com/docs/react/essentials/get-started.html)
+  - [X] [Generating Schema](https://www.apollographql.com/docs/graphql-tools/generate-schema.html#example)
+  - [ ] Integrate with React
+    - [ ] [Remote schemas](https://www.apollographql.com/docs/apollo-server/features/remote-schemas.html)
+    - [ ] [`apollo-schema-link`](https://www.apollographql.com/docs/link/links/schema.html)
+    - [ ] [Supply mock link?](https://medium.com/@garyaparker/mocking-apollo-2-client-data-in-react-with-webpack-schema-link-and-graphql-tools-cf0f1b356b6d)
   - [ ] [Getting Started](https://www.apollographql.com/docs/react/essentials/get-started.html)
   - [ ] [Typescript](https://www.apollographql.com/docs/react/recipes/static-typing.html)
   - [ ] [Mocking graphql](https://www.apollographql.com/docs/graphql-tools/mocking.html)
