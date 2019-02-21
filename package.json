@@ -2,11 +2,14 @@
   "name": "crossfit-client",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "tslint --project . --fix"
+  },
   "dependencies": {
-    "@types/jest": "24.0.6",
-    "@types/node": "11.9.4",
-    "@types/react": "16.8.3",
-    "@types/react-dom": "16.8.2",
     "apollo-boost": "^0.1.28",
     "apollo-link-schema": "^1.1.6",
     "graphql": "^14.1.1",
@@ -14,14 +17,15 @@
     "react": "^16.8.2",
     "react-apollo": "^2.4.1",
     "react-dom": "^16.8.2",
-    "react-scripts": "2.1.5",
-    "typescript": "3.3.3"
+    "react-scripts": "2.1.5"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "@types/jest": "24.0.6",
+    "@types/node": "11.9.4",
+    "@types/react": "16.8.3",
+    "@types/react-dom": "16.8.2",
+    "tslint": "^5.12.1",
+    "typescript": "3.3.3"
   },
   "eslintConfig": {
     "extends": "react-app"

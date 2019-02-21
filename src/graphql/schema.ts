@@ -1,4 +1,4 @@
-import { makeExecutableSchema, addMockFunctionsToSchema } from 'graphql-tools';
+import { addMockFunctionsToSchema, makeExecutableSchema } from "graphql-tools";
 
 const defaultTypeDefs = `
 scalar DateTime
@@ -38,17 +38,17 @@ extend type Query {
 }
 `;
 
-const typeDefs = [defaultTypeDefs, typeDefsChallenge + typeDefsWipChallenge]
+const typeDefs = [defaultTypeDefs, typeDefsChallenge + typeDefsWipChallenge];
 
 // Make a GraphQL schema with no resolvers
 const schema = makeExecutableSchema({ typeDefs });
 
 // Add mocks, modifies schema in place
 addMockFunctionsToSchema({
-  schema,
   mocks: {
-    DateTime: () => new Date("2019-02-20")
-  }
+    DateTime: () => new Date("2019-02-20"),
+  },
+  schema,
 });
 
 export default schema;

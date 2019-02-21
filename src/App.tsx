@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 import { ApolloProvider } from "react-apollo";
 
-import WipChallenges from './components/WipChallenges';
+import WipChallenges from "./components/WipChallenges";
 import client from "./graphql/client";
 
 export default class App extends React.Component {
-  render() { return (
+  public render() { return (
     <ApolloProvider client={client}>
       <WipChallenges/>
     </ApolloProvider>
