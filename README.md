@@ -10,7 +10,7 @@
   - [X] [Getting Started](https://www.apollographql.com/docs/react/essentials/get-started.html)
   - [ ] [Typescript](https://www.apollographql.com/docs/react/recipes/static-typing.html)
   - [X] [Mocking graphql](https://www.apollographql.com/docs/graphql-tools/mocking.html)
-- [ ] [React Router](https://reacttraining.com/react-router/web/guides/philosophy)
+- [X] [React Router](https://reacttraining.com/react-router/web/guides/philosophy)
 - [ ] Admin Login
   - [ ] [Mutations](https://www.apollographql.com/docs/react/essentials/mutations.html)
 - [ ] CRUD Challenges
