@@ -6,6 +6,15 @@ scalar DateTime
 type Query {
   _empty: String
 }
+
+type LoginResponse {
+  jwt: String
+  errors: [String]!
+}
+
+type Mutation {
+  login(email: String!, password: String!): LoginResponse
+}
 `;
 
 const typeDefsChallenge = `
