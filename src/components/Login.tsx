@@ -1,10 +1,10 @@
 import gql from "graphql-tag";
 import React from "react";
 import { Mutation } from "react-apollo";
+import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { IAuthenticator } from "../interfaces/IAuthenticator";
-
-export default class Login extends React.Component<{authenticator: IAuthenticator}, { email: string, password: string }> {
+import { authenticate } from "../redux/actions";
+class Login extends React.Component<{ authenticate: any }, { email: string, password: string }> {
   constructor(props: any) {
     super(props);
     this.state = { email: "", password: "" };
@@ -48,3 +48,5 @@ export default class Login extends React.Component<{authenticator: IAuthenticato
     );
   }
 }
+
+export default connect(() => ({}), { authenticate })(Login);
