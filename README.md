@@ -4,11 +4,11 @@
 
 ### v0.1
 
-- [ ] GraphQL with [Apollo client](https://www.apollographql.com/docs/react/essentials/get-started.html)
+- [X] GraphQL with [Apollo client](https://www.apollographql.com/docs/react/essentials/get-started.html)
   - [X] [Generating Schema](https://www.apollographql.com/docs/graphql-tools/generate-schema.html#example)
   - [X] Integrate with React
   - [X] [Getting Started](https://www.apollographql.com/docs/react/essentials/get-started.html)
-  - [ ] [Typescript](https://www.apollographql.com/docs/react/recipes/static-typing.html)
+  - [X] [Typescript](https://www.apollographql.com/docs/react/recipes/static-typing.html)
   - [X] [Mocking graphql](https://www.apollographql.com/docs/graphql-tools/mocking.html)
 - [ ] [React Router](https://reacttraining.com/react-router/web/guides/philosophy)
   - [ ] Select default route
