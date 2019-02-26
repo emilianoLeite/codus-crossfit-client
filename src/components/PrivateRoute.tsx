@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Redirect, Route, RouteProps } from "react-router";
-import { IAuthenticator } from "../interfaces/IAuthenticator";
 
 interface IPrivateRouteProps extends RouteProps {
   component: React.ComponentType<any>;
