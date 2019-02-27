@@ -3,7 +3,7 @@ import { combineReducers } from "redux";
 import { createReducer } from "redux-starter-kit";
 import { authenticate } from "../actions";
 
-const authenticateReducer = (isAuthenticated: boolean, action: object): any => {
+const authenticateReducer = (isAuthenticated: boolean, action: any): any => {
   return true;
 };
 

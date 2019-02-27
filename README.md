@@ -25,10 +25,10 @@
   - [ ] email
 - [ ] Polir telas
 
-
 ## Warnings
 
 - [ ] Confirmar que realmente *precisamos* usar o [connected-react-router](https://github.com/supasate/connected-react-router) pra usar Router + Redux. [See commit](https://github.com/emilianoLeite/codus-crossfit-client/commit/a82d81edbba8908387b54b51b080213297913f71)
+- [ ] GraphQL error loga um `Error` vazio no console
 
 _______
 
