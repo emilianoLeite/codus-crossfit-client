@@ -1,3 +1,4 @@
+import { GraphQLError } from "graphql";
 import { addMockFunctionsToSchema, makeExecutableSchema } from "graphql-tools";
 
 const defaultTypeDefs = `
@@ -7,13 +8,8 @@ type Query {
   _empty: String
 }
 
-type LoginResponse {
-  jwt: String
-  errors: [String]!
-}
-
 type Mutation {
-  login(email: String!, password: String!): LoginResponse
+  login(email: String!, password: String!): String!
 }
 `;
 
@@ -56,6 +52,15 @@ const schema = makeExecutableSchema({ typeDefs });
 addMockFunctionsToSchema({
   mocks: {
     DateTime: () => new Date("2019-02-20"),
+    Mutation: () => ({
+      login: (_obj: any, { password }: { password: string }) => {
+        if (password === "123") {
+          throw new GraphQLError("login failed");
+        } else {
+          return "JWT Token 2133214214";
+        }
+      },
+    }),
   },
   schema,
 });
