@@ -18,6 +18,7 @@ export default class App extends React.Component<{ store: Store }, {}> {
       <ConnectedRouter history={history}>
         <ApolloProvider client={client}>
           <Navbar />
+          <PrivateRoute exact path="/" component={WipChallenges} />
           <Route path="/login" component={Login} />
           <PrivateRoute
             path="/challenges"

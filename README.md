@@ -10,13 +10,13 @@
   - [X] [Getting Started](https://www.apollographql.com/docs/react/essentials/get-started.html)
   - [X] [Typescript](https://www.apollographql.com/docs/react/recipes/static-typing.html)
   - [X] [Mocking graphql](https://www.apollographql.com/docs/graphql-tools/mocking.html)
-- [ ] [React Router](https://reacttraining.com/react-router/web/guides/philosophy)
-  - [ ] Select default route
+- [X] [React Router](https://reacttraining.com/react-router/web/guides/philosophy)
+  - [X] Select default route
 - [X] Redux
 - [x] Router + Redux
   - [X] [connected-react-router](https://github.com/supasate/connected-react-router)
-- [ ] Admin Login
-  - [ ] [Mutations](https://www.apollographql.com/docs/react/essentials/mutations.html)
+- [X] Admin Login
+  - [X] [Mutations](https://www.apollographql.com/docs/react/essentials/mutations.html)
 - [ ] CRUD Challenges
   - [ ] [Queries](https://www.apollographql.com/docs/react/essentials/queries.html)
 - [ ] CRUD WipChallenges
