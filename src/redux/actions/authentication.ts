@@ -1,3 +1,6 @@
 import { createAction } from "redux-starter-kit";
 
-export default createAction("AUTHENTICATE");
+const authenticate = createAction("AUTHENTICATE");
+const setCurrentUser = createAction("SAVE_CURRENT_USER");
+
+export { authenticate, setCurrentUser };
