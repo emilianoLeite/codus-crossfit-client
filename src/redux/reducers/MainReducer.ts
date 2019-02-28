@@ -1,17 +1,8 @@
 import { connectRouter } from "connected-react-router";
 import { combineReducers } from "redux";
-import { createReducer } from "redux-starter-kit";
-import { authenticate } from "../actions";
-
-const authenticateReducer = (isAuthenticated: boolean, action: any): any => {
-  return true;
-};
-
-const mainReducer = createReducer(false, {
-  [authenticate.type]: authenticateReducer,
-});
+import AuthenticationReducer from "./AuthenticationReducer";
 
 export default (history: any) => combineReducers({
-  isAuthenticated: mainReducer,
+  authentication: AuthenticationReducer,
   router: connectRouter(history),
 });
