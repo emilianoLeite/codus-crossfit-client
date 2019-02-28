@@ -5,8 +5,8 @@ import { Provider as ReduxProvider } from "react-redux";
 import { Route } from "react-router-dom";
 import { Store } from "redux";
 
+import Header from "./components/Header";
 import Login from "./components/Login";
-import Navbar from "./components/Navbar";
 import PrivateRoute from "./components/PrivateRoute";
 import WipChallenges from "./components/WipChallenges";
 import client from "./graphql/client";
@@ -17,7 +17,7 @@ export default class App extends React.Component<{ store: Store }, {}> {
     <ReduxProvider store={this.props.store}>
       <ConnectedRouter history={history}>
         <ApolloProvider client={client}>
-          <Navbar />
+          <Header />
           <PrivateRoute exact path="/" component={WipChallenges} />
           <Route path="/login" component={Login} />
           <PrivateRoute
