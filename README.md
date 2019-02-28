@@ -17,8 +17,9 @@
   - [X] [connected-react-router](https://github.com/supasate/connected-react-router)
 - [X] Admin Login
   - [X] [Mutations](https://www.apollographql.com/docs/react/essentials/mutations.html)
+  - [X] Save in Redux
 - [ ] CRUD Challenges
-  - [ ] [Queries](https://www.apollographql.com/docs/react/essentials/queries.html)
+  - [X] [Queries](https://www.apollographql.com/docs/react/essentials/queries.html)
 - [ ] CRUD WipChallenges
   - [ ] challenge_id
   - [ ] status (enum)

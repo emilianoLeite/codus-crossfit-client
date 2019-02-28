@@ -4,8 +4,15 @@ import React from "react";
 import { Mutation, MutationFn } from "react-apollo";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
+import { PayloadActionCreator } from "redux-starter-kit";
 
-import { authenticate } from "../redux/actions";
+import { authenticate, setCurrentUser } from "../redux/actions";
+import { IReduxAuthentication } from "../redux/reducers/AuthenticationReducer";
+
+interface IProps {
+  authenticate: PayloadActionCreator;
+  setCurrentUser: PayloadActionCreator;
+}
 
 interface IState {
   email: string;
@@ -14,7 +21,7 @@ interface IState {
   redirectToReferrer: boolean;
 }
 
-class Login extends React.Component<{ authenticate: any }, IState> {
+class Login extends React.Component<IProps, IState> {
   constructor(props: any) {
     super(props);
 
@@ -37,7 +44,13 @@ class Login extends React.Component<{ authenticate: any }, IState> {
 
     const LOGIN = gql`
       mutation Login($email: String!, $password: String!) {
-        login(email: $email, password: $password)
+        login(email: $email, password: $password) {
+          jwt
+          user {
+            id
+            email
+          }
+        }
       }
     `;
 
@@ -81,17 +94,19 @@ class Login extends React.Component<{ authenticate: any }, IState> {
 
   private submitLogin(loginMutation: MutationFn) {
     return async () => {
-      await loginMutation({
+      const response = await loginMutation({
         variables: {
           email: this.state.email,
           password: this.state.password,
         },
       });
+      const user = response && response.data.login.user as IReduxAuthentication;
 
       this.props.authenticate();
+      this.props.setCurrentUser(user);
       this.setState({ redirectToReferrer: true });
     };
   }
 }
 
-export default connect(null, { authenticate })(Login);
+export default connect(null, { authenticate, setCurrentUser })(Login);

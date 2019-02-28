@@ -8,8 +8,18 @@ type Query {
   _empty: String
 }
 
+type User {
+  id: ID!
+  email: String!
+}
+
+type LoginResponse {
+  jwt: String!
+  user: User
+}
+
 type Mutation {
-  login(email: String!, password: String!): String!
+  login(email: String!, password: String!): LoginResponse!
 }
 `;
 
@@ -57,7 +67,9 @@ addMockFunctionsToSchema({
         if (password === "123") {
           throw new GraphQLError("login failed");
         } else {
-          return "JWT Token 2133214214";
+          return {
+            jwt: "JWT Token 2133214214",
+          };
         }
       },
     }),
