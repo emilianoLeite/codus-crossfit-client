@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Redirect, Route, RouteProps } from "react-router";
+import { IReduxAuthentication } from "../redux/reducers/AuthenticationReducer";
 
 interface IPrivateRouteProps extends RouteProps {
   component: React.ComponentType<any>;
@@ -27,5 +28,8 @@ function PrivateRoute({ component, isAuthenticated, ...rest }: IPrivateRouteProp
   );
 }
 
-const mapStateToProps = ({ isAuthenticated }: { isAuthenticated: boolean }) => ({ isAuthenticated });
+const mapStateToProps = ({ authentication }: { authentication: IReduxAuthentication }) => {
+  return { isAuthenticated: authentication.isAuthenticated };
+};
+
 export default connect(mapStateToProps)(PrivateRoute);

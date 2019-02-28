@@ -1,3 +1,3 @@
-import authenticate from "./authentication";
+import { authenticate, setCurrentUser } from "./authentication";
 
-export { authenticate };
+export { authenticate, setCurrentUser };

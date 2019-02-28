@@ -4,31 +4,32 @@
 
 ### v0.1
 
-- [ ] GraphQL with [Apollo client](https://www.apollographql.com/docs/react/essentials/get-started.html)
+- [X] GraphQL with [Apollo client](https://www.apollographql.com/docs/react/essentials/get-started.html)
   - [X] [Generating Schema](https://www.apollographql.com/docs/graphql-tools/generate-schema.html#example)
   - [X] Integrate with React
   - [X] [Getting Started](https://www.apollographql.com/docs/react/essentials/get-started.html)
-  - [ ] [Typescript](https://www.apollographql.com/docs/react/recipes/static-typing.html)
+  - [X] [Typescript](https://www.apollographql.com/docs/react/recipes/static-typing.html)
   - [X] [Mocking graphql](https://www.apollographql.com/docs/graphql-tools/mocking.html)
-- [ ] [React Router](https://reacttraining.com/react-router/web/guides/philosophy)
-  - [ ] Select default route
+- [X] [React Router](https://reacttraining.com/react-router/web/guides/philosophy)
+  - [X] Select default route
 - [X] Redux
 - [x] Router + Redux
   - [X] [connected-react-router](https://github.com/supasate/connected-react-router)
-- [ ] Admin Login
-  - [ ] [Mutations](https://www.apollographql.com/docs/react/essentials/mutations.html)
+- [X] Admin Login
+  - [X] [Mutations](https://www.apollographql.com/docs/react/essentials/mutations.html)
+  - [X] Save in Redux
 - [ ] CRUD Challenges
-  - [ ] [Queries](https://www.apollographql.com/docs/react/essentials/queries.html)
+  - [X] [Queries](https://www.apollographql.com/docs/react/essentials/queries.html)
 - [ ] CRUD WipChallenges
   - [ ] challenge_id
   - [ ] status (enum)
   - [ ] email
 - [ ] Polir telas
 
-
 ## Warnings
 
 - [ ] Confirmar que realmente *precisamos* usar o [connected-react-router](https://github.com/supasate/connected-react-router) pra usar Router + Redux. [See commit](https://github.com/emilianoLeite/codus-crossfit-client/commit/a82d81edbba8908387b54b51b080213297913f71)
+- [ ] GraphQL error loga um `Error` vazio no console
 
 _______
 
