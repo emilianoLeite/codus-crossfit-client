@@ -13,7 +13,7 @@
 - [ ] [React Router](https://reacttraining.com/react-router/web/guides/philosophy)
   - [ ] Select default route
 - [X] Redux
-- [x] React + Redux
+- [x] Router + Redux
   - [X] [connected-react-router](https://github.com/supasate/connected-react-router)
 - [ ] Admin Login
   - [ ] [Mutations](https://www.apollographql.com/docs/react/essentials/mutations.html)
