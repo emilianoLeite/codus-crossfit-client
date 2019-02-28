@@ -12,7 +12,9 @@
   - [X] [Mocking graphql](https://www.apollographql.com/docs/graphql-tools/mocking.html)
 - [ ] [React Router](https://reacttraining.com/react-router/web/guides/philosophy)
   - [ ] Select default route
-- [ ] Redux
+- [X] Redux
+- [x] Router + Redux
+  - [X] [connected-react-router](https://github.com/supasate/connected-react-router)
 - [ ] Admin Login
   - [ ] [Mutations](https://www.apollographql.com/docs/react/essentials/mutations.html)
 - [ ] CRUD Challenges
@@ -22,6 +24,11 @@
   - [ ] status (enum)
   - [ ] email
 - [ ] Polir telas
+
+
+## Warnings
+
+- [ ] Confirmar que realmente *precisamos* usar o [connected-react-router](https://github.com/supasate/connected-react-router) pra usar Router + Redux. [See commit](https://github.com/emilianoLeite/codus-crossfit-client/commit/a82d81edbba8908387b54b51b080213297913f71)
 
 _______
 
