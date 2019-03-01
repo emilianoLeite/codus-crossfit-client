@@ -8,6 +8,7 @@ import { Store } from "redux";
 import ChallengesScreen from "./components/ChallengesScreen";
 import Header from "./components/Header";
 import Login from "./components/Login";
+import NewChallengeScreen from "./components/NewChallengeScreen";
 import PrivateRoute from "./components/PrivateRoute";
 import WipChallenges from "./components/WipChallenges";
 import client from "./graphql/client";
@@ -26,8 +27,13 @@ export default class App extends React.Component<{ store: Store }, {}> {
             component={WipChallenges}
           />
           <PrivateRoute
+            exact
             path="/challenges"
             component={ChallengesScreen}
+          />
+          <PrivateRoute
+            path="/challenges/new"
+            component={NewChallengeScreen}
           />
         </ApolloProvider>
       </ConnectedRouter>

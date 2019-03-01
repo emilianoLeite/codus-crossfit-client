@@ -1,5 +1,5 @@
 import React from "react";
-import { match } from "react-router-dom";
+import { Link, match } from "react-router-dom";
 
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
@@ -9,6 +9,7 @@ import ChallengeList from "./ChallengeList";
 export default class ChallengesScreen extends React.Component<{match: match}, {}> {
   public render() { return (
     <div className="challenges-screen-container">
+      <Link className="btn" to={`${this.props.match.url}/new`}> Create Challenge </Link>
       {this.renderChallengeList()}
     </div>
   ); }
