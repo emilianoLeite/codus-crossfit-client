@@ -19,11 +19,13 @@
   - [X] [Mutations](https://www.apollographql.com/docs/react/essentials/mutations.html)
   - [X] Save in Redux
 - [ ] CRUD Challenges
-  - [X] [Queries](https://www.apollographql.com/docs/react/essentials/queries.html)
+  - [X] List Challenges
+  - [X] Create Challenge
+  - [ ] HOC on redirectable components
 - [ ] CRUD WipChallenges
-  - [ ] challenge_id
-  - [ ] status (enum)
-  - [ ] email
+  - [X] List WIP Challenges
+  - [ ] Create WIP Challenges
+  - [ ] Move WIP Challenges between status
 - [ ] Polir telas
 
 ## Warnings
