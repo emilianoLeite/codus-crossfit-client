@@ -5,6 +5,7 @@ import { Provider as ReduxProvider } from "react-redux";
 import { Route } from "react-router-dom";
 import { Store } from "redux";
 
+import ChallengesScreen from "./components/ChallengesScreen";
 import Header from "./components/Header";
 import Login from "./components/Login";
 import PrivateRoute from "./components/PrivateRoute";
@@ -21,8 +22,12 @@ export default class App extends React.Component<{ store: Store }, {}> {
           <PrivateRoute exact path="/" component={WipChallenges} />
           <Route path="/login" component={Login} />
           <PrivateRoute
-            path="/challenges"
+            path="/wip_challenges"
             component={WipChallenges}
+          />
+          <PrivateRoute
+            path="/challenges"
+            component={ChallengesScreen}
           />
         </ApolloProvider>
       </ConnectedRouter>
