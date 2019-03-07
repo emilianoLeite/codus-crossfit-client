@@ -1,12 +1,7 @@
-import React from "react";
-
 import gql from "graphql-tag";
+import React from "react";
 import { Query } from "react-apollo";
-
-interface IWipChallenge {
-  id: string;
-  userEmail: string;
-}
+import WipChallengesList from "../components/WipChallengesList";
 
 export default function WipChallenges(props: any) {
   const query = gql`
@@ -23,11 +18,7 @@ export default function WipChallenges(props: any) {
         if (loading) { return <p>Loading...</p>; }
         if (error) { return <p>Error ☹</p>; }
 
-        return data.wipChallenges.map(({ id, userEmail }: IWipChallenge) => (
-          <div key={id}>
-            <p>{userEmail}</p>
-          </div>
-        ));
+        return <WipChallengesList wipChallenges={data.wipChallenges} />;
       }}
     </Query>
   );

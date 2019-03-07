@@ -10,7 +10,7 @@ interface IState {
   isChallengeCreated: boolean;
 }
 
-export default class NewChallengeScreen extends React.Component<{}, IState> {
+export default class NewChallengePage extends React.Component<{}, IState> {
   constructor(props: any) {
     super(props);
 

@@ -3,12 +3,12 @@ import { Link, match } from "react-router-dom";
 
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
-import "../styles/ChallengesScreen.css";
-import ChallengeList from "./ChallengeList";
+import ChallengeList from "../components/ChallengeList";
+import "../styles/ChallengesPage.css";
 
-export default class ChallengesScreen extends React.Component<{match: match}, {}> {
+export default class ChallengesPage extends React.Component<{match: match}, {}> {
   public render() { return (
-    <div className="challenges-screen-container">
+    <div className="challenges-page-container">
       <Link className="btn" to={`${this.props.match.url}/new`}> Create Challenge </Link>
       {this.renderChallengeList()}
     </div>

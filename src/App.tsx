@@ -5,13 +5,15 @@ import { Provider as ReduxProvider } from "react-redux";
 import { Route } from "react-router-dom";
 import { Store } from "redux";
 
-import ChallengesScreen from "./components/ChallengesScreen";
 import Header from "./components/Header";
-import NewChallengeScreen from "./components/NewChallengeScreen";
 import PrivateRoute from "./components/PrivateRoute";
-import WipChallenges from "./components/WipChallenges";
 import client from "./graphql/client";
-import Login from "./pages/LoginPage";
+import {
+  ChallengesPage,
+  LoginPage,
+  NewChallengePage,
+  WipChallengesPage,
+} from "./pages";
 import { history } from "./redux/ConfigureStore";
 
 export default class App extends React.Component<{ store: Store }, {}> {
@@ -20,20 +22,20 @@ export default class App extends React.Component<{ store: Store }, {}> {
       <ConnectedRouter history={history}>
         <ApolloProvider client={client}>
           <Header />
-          <PrivateRoute exact path="/" component={WipChallenges} />
-          <Route path="/login" component={Login} />
+          <PrivateRoute exact path="/" component={WipChallengesPage} />
+          <Route path="/login" component={LoginPage} />
           <PrivateRoute
             path="/wip_challenges"
-            component={WipChallenges}
+            component={WipChallengesPage}
           />
           <PrivateRoute
             exact
             path="/challenges"
-            component={ChallengesScreen}
+            component={ChallengesPage}
           />
           <PrivateRoute
             path="/challenges/new"
-            component={NewChallengeScreen}
+            component={NewChallengePage}
           />
         </ApolloProvider>
       </ConnectedRouter>

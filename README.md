@@ -18,6 +18,7 @@
 - [X] Admin Login
   - [X] [Mutations](https://www.apollographql.com/docs/react/essentials/mutations.html)
   - [X] Save in Redux
+- [X] Add "Page" convention
 - [ ] CRUD Challenges
   - [X] List Challenges
   - [X] Create Challenge
