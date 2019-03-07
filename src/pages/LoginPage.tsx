@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { PayloadActionCreator } from "redux-starter-kit";
 
+import LoginForm, { ILoginForm } from "../components/LoginForm";
 import { authenticate, setCurrentUser } from "../redux/actions";
 import { IReduxAuthentication } from "../redux/reducers/AuthenticationReducer";
 
@@ -15,25 +16,17 @@ interface IProps {
 }
 
 interface IState {
-  email: string;
   from: object;
-  password: string;
   redirectToReferrer: boolean;
 }
 
-class Login extends React.Component<IProps, IState> {
+class LoginPage extends React.Component<IProps, IState> {
   constructor(props: any) {
     super(props);
 
     const { from } = props.location.state || { from: { pathname: "/" } };
 
-    this.state = {
-      email: "",
-      from,
-      password: "",
-      redirectToReferrer: false,
-    };
-
+    this.state = { from, redirectToReferrer: false };
     this.submitLogin = this.submitLogin.bind(this);
   }
 
@@ -69,23 +62,9 @@ class Login extends React.Component<IProps, IState> {
         {(login, { error }) => (
           <div>
             {error && graphQLErrorMessages(error)}
-
-            <label htmlFor="email"> Email </label>
-            <input
-              name="email"
-              defaultValue={this.state.email}
-              onChange={(e) => { this.setState({ email: e.target.value }); }}
+            <LoginForm
+              onSubmit={this.submitLogin(login)}
             />
-            <label htmlFor="password"> Password </label>
-            <input
-              name="password"
-              defaultValue={this.state.password}
-              type="password"
-              onChange={(e) => { this.setState({ password: e.target.value }); }}
-            />
-            <button onClick={this.submitLogin(login)} type="button">
-              Login
-            </button>
           </div>
         )}
       </Mutation>
@@ -93,12 +72,9 @@ class Login extends React.Component<IProps, IState> {
   }
 
   private submitLogin(loginMutation: MutationFn) {
-    return async () => {
+    return async ({ email, password }: ILoginForm) => {
       const response = await loginMutation({
-        variables: {
-          email: this.state.email,
-          password: this.state.password,
-        },
+        variables: { email, password },
       });
       const user = response && response.data.login.user as IReduxAuthentication;
 
@@ -109,4 +85,4 @@ class Login extends React.Component<IProps, IState> {
   }
 }
 
-export default connect(null, { authenticate, setCurrentUser })(Login);
+export default connect(null, { authenticate, setCurrentUser })(LoginPage);

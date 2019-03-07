@@ -7,11 +7,11 @@ import { Store } from "redux";
 
 import ChallengesScreen from "./components/ChallengesScreen";
 import Header from "./components/Header";
-import Login from "./components/Login";
 import NewChallengeScreen from "./components/NewChallengeScreen";
 import PrivateRoute from "./components/PrivateRoute";
 import WipChallenges from "./components/WipChallenges";
 import client from "./graphql/client";
+import Login from "./pages/LoginPage";
 import { history } from "./redux/ConfigureStore";
 
 export default class App extends React.Component<{ store: Store }, {}> {
