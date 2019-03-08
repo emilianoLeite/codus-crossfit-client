@@ -2,7 +2,8 @@ import { ApolloError } from "apollo-boost";
 import gql from "graphql-tag";
 import React from "react";
 import { Mutation, MutationFn } from "react-apollo";
-import { Redirect } from "react-router";
+
+import * as Redirectable from "../components/Redirectable";
 
 interface IState {
   title: string;
@@ -10,7 +11,7 @@ interface IState {
   isChallengeCreated: boolean;
 }
 
-export default class NewChallengePage extends React.Component<{}, IState> {
+class NewChallengePage extends React.Component<Redirectable.IRedirectableProps, IState> {
   constructor(props: any) {
     super(props);
 
@@ -64,7 +65,6 @@ export default class NewChallengePage extends React.Component<{}, IState> {
             <button onClick={this.createChallenge(createChallenge)} type="button">
               Submit
             </button>
-            { this.state.isChallengeCreated && <Redirect to={"/challenges"} /> }
           </div>
         )}
       </Mutation>
@@ -79,7 +79,9 @@ export default class NewChallengePage extends React.Component<{}, IState> {
           title: this.state.title,
         },
       });
-      this.setState({ isChallengeCreated: true });
+      this.props.redirect("/challenges");
     };
   }
 }
+
+export default Redirectable.HOC(NewChallengePage);

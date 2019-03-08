@@ -3,14 +3,14 @@ import gql from "graphql-tag";
 import React from "react";
 import { Mutation, MutationFn } from "react-apollo";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
-import { PayloadActionCreator } from "redux-starter-kit";
+import { compose, PayloadActionCreator } from "redux-starter-kit";
 
 import LoginForm, { ILoginForm } from "../components/LoginForm";
+import * as Redirectable from "../components/Redirectable";
 import { authenticate, setCurrentUser } from "../redux/actions";
 import { IReduxAuthentication } from "../redux/reducers/AuthenticationReducer";
 
-interface IProps {
+interface IProps extends Redirectable.IRedirectableProps {
   authenticate: PayloadActionCreator;
   setCurrentUser: PayloadActionCreator;
 }
@@ -23,18 +23,10 @@ interface IState {
 class LoginPage extends React.Component<IProps, IState> {
   constructor(props: any) {
     super(props);
-
-    const { from } = props.location.state || { from: { pathname: "/" } };
-
-    this.state = { from, redirectToReferrer: false };
     this.submitLogin = this.submitLogin.bind(this);
   }
 
   public render() {
-    if (this.state.redirectToReferrer) {
-      return <Redirect to={this.state.from} />;
-    }
-
     const LOGIN = gql`
       mutation Login($email: String!, $password: String!) {
         login(email: $email, password: $password) {
@@ -62,9 +54,7 @@ class LoginPage extends React.Component<IProps, IState> {
         {(login, { error }) => (
           <div>
             {error && graphQLErrorMessages(error)}
-            <LoginForm
-              onSubmit={this.submitLogin(login)}
-            />
+            <LoginForm onSubmit={this.submitLogin(login)} />
           </div>
         )}
       </Mutation>
@@ -80,9 +70,12 @@ class LoginPage extends React.Component<IProps, IState> {
 
       this.props.authenticate();
       this.props.setCurrentUser(user);
-      this.setState({ redirectToReferrer: true });
+      this.props.redirect();
     };
   }
 }
 
-export default connect(null, { authenticate, setCurrentUser })(LoginPage);
+export default compose<React.ComponentType>(
+  connect(null, { authenticate, setCurrentUser }),
+  Redirectable.HOC,
+)(LoginPage);
