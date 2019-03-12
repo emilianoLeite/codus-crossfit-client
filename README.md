@@ -22,6 +22,8 @@
 - [X] CRUD Challenges
   - [X] List Challenges
   - [X] Create Challenge
+  - [ ] Update Challenge
+  - [ ] Delete Challenge
   - [X] HOC on redirectable components
 - [ ] CRUD WipChallenges
   - [X] List WIP Challenges
