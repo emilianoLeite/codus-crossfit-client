@@ -3,11 +3,11 @@ import gql from "graphql-tag";
 import React from "react";
 import { Mutation, MutationFn } from "react-apollo";
 
+import ChallengeForm from "../components/ChallengeForm";
 import * as Redirectable from "../components/Redirectable";
+import { IChallenge } from "../interfaces/IChallenge";
 
 interface IState {
-  title: string;
-  description: string;
   isChallengeCreated: boolean;
 }
 
@@ -15,7 +15,7 @@ class NewChallengePage extends React.Component<Redirectable.IRedirectableProps, 
   constructor(props: any) {
     super(props);
 
-    this.state = { title: "", description: "", isChallengeCreated: false };
+    this.state = { isChallengeCreated: false };
     this.createChallenge = this.createChallenge.bind(this);
   }
 
@@ -43,28 +43,9 @@ class NewChallengePage extends React.Component<Redirectable.IRedirectableProps, 
         {(createChallenge, { error }) => (
           <div>
             {error && graphQLErrorMessages(error)}
-
-            <div>
-              <label htmlFor="title">Title</label>
-              <input
-                name="title"
-                value={this.state.title}
-                onChange={(e) => { this.setState({ title: e.target.value }); }}
-              />
-            </div>
-
-            <div>
-              <label htmlFor="description">Description</label>
-              <input
-                name="description"
-                value={this.state.description}
-                onChange={(e) => { this.setState({ description: e.target.value }); }}
-              />
-            </div>
-
-            <button onClick={this.createChallenge(createChallenge)} type="button">
-              Submit
-            </button>
+            <ChallengeForm
+              onSubmit={this.createChallenge(createChallenge)}
+            />
           </div>
         )}
       </Mutation>
@@ -72,13 +53,8 @@ class NewChallengePage extends React.Component<Redirectable.IRedirectableProps, 
   }
 
   private createChallenge(createChallengeMutation: MutationFn) {
-    return async () => {
-      await createChallengeMutation({
-        variables: {
-          description: this.state.description,
-          title: this.state.title,
-        },
-      });
+    return async ({ title, description }: IChallenge) => {
+      await createChallengeMutation({ variables: { description, title } });
       this.props.redirect("/challenges");
     };
   }
