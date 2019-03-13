@@ -1,15 +1,20 @@
 import React from "react";
-
-interface IChallenge {
-  id: string;
-  title: string;
-  description: string;
-}
+import { IChallenge } from "../interfaces/IChallenge";
+import RelativeLink from "./RelativeLink";
 
 const ChallengeList: React.FunctionComponent<{ challenges: IChallenge[] }> = ({ challenges }) => {
   return (
     <ul>
-      {challenges.map((challenge) => <li key={challenge.id}>{challenge.title}</li>)}
+      {challenges.map((challenge) => {
+        return (
+          <li key={challenge.id}>
+            <span>
+              {challenge.title}
+            </span>
+            <RelativeLink to={`/${challenge.id}/edit`}>Edit Challenge</RelativeLink>
+          </li>
+        );
+        })}
     </ul>
   );
 };

@@ -1,20 +1,13 @@
 import React from "react";
-import { Link, match } from "react-router-dom";
 
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
 import ChallengeList from "../components/ChallengeList";
+import RelativeLink from "../components/RelativeLink";
 import "../styles/ChallengesPage.css";
 
-export default class ChallengesPage extends React.Component<{match: match}, {}> {
-  public render() { return (
-    <div className="challenges-page-container">
-      <Link className="btn" to={`${this.props.match.url}/new`}> Create Challenge </Link>
-      {this.renderChallengeList()}
-    </div>
-  ); }
-
-  private renderChallengeList() {
+const ChallengesPage: React.FunctionComponent = () => {
+  const renderChallengeList = () => {
     const ALL_CHALLENGES = gql`{
       challenges {
         id
@@ -32,5 +25,14 @@ export default class ChallengesPage extends React.Component<{match: match}, {}> 
         }}
       </Query>
     );
-  }
-}
+  };
+
+  return (
+    <div className="challenges-page-container">
+      <RelativeLink to="/new">Create Challenge</RelativeLink>
+      {renderChallengeList()}
+    </div>
+  );
+};
+
+export default ChallengesPage;
