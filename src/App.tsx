@@ -6,13 +6,10 @@ import { Route } from "react-router-dom";
 import { Store } from "redux";
 
 import Header from "./components/Header";
-import PrivateRoute from "./components/PrivateRoute";
 import client from "./graphql/client";
 import {
-  ChallengesPage,
   LoginPage,
-  NewChallengePage,
-  WipChallengesPage,
+  PrivateRoutesRegistry,
 } from "./pages";
 import { history } from "./redux/ConfigureStore";
 
@@ -22,21 +19,8 @@ export default class App extends React.Component<{ store: Store }, {}> {
       <ConnectedRouter history={history}>
         <ApolloProvider client={client}>
           <Header />
-          <PrivateRoute exact path="/" component={WipChallengesPage} />
           <Route path="/login" component={LoginPage} />
-          <PrivateRoute
-            path="/wip_challenges"
-            component={WipChallengesPage}
-          />
-          <PrivateRoute
-            exact
-            path="/challenges"
-            component={ChallengesPage}
-          />
-          <PrivateRoute
-            path="/challenges/new"
-            component={NewChallengePage}
-          />
+          <PrivateRoutesRegistry/>
         </ApolloProvider>
       </ConnectedRouter>
     </ReduxProvider>
