@@ -9,7 +9,7 @@ export interface IRedirectableProps {
   redirect: RedirectableCallback;
 }
 
-export function HOC(Component: React.ComponentType<IRedirectableProps>) {
+export function HOC<P extends IRedirectableProps>(Component: React.ComponentType<P>) {
   interface IProps {
     location: Location;
   }
@@ -18,7 +18,7 @@ export function HOC(Component: React.ComponentType<IRedirectableProps>) {
     redirectToReferrer: boolean;
   }
 
-  return class WrappedComponent extends React.Component<IProps, IState> {
+  return class WrappedComponent extends React.Component<P & IProps, IState> {
     public static displayName = `Redirectable(${getComponentName(Component)})`;
 
     public state = {
