@@ -12,7 +12,6 @@ const ChallengesPage: React.FunctionComponent = () => {
       challenges {
         id
         title
-        description
       }
     }`;
     return (

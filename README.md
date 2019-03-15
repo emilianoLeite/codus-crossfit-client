@@ -22,7 +22,7 @@
 - [X] CRUD Challenges
   - [X] List Challenges
   - [X] Create Challenge
-  - [ ] Update Challenge
+  - [X] Update Challenge
   - [ ] Delete Challenge
   - [X] HOC on redirectable components
 - [ ] CRUD WipChallenges
@@ -30,6 +30,7 @@
   - [ ] Create WIP Challenges
   - [ ] Move WIP Challenges between status
 - [ ] Polir telas
+- [ ] Improve `History.LocationState` type
 
 ## Warnings
 

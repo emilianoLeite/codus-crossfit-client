@@ -20,7 +20,6 @@ type LoginResponse {
 
 type Mutation {
   login(email: String!, password: String!): LoginResponse!
-  createChallenge(title: String!, description: String): Challenge!
 }
 `;
 
@@ -34,7 +33,13 @@ type Challenge {
 }
 
 extend type Query {
+  challenge(id: ID!): Challenge!
   challenges: [Challenge]!
+}
+
+extend type Mutation {
+  createChallenge(title: String!, description: String!): Challenge!
+  updateChallenge(id: ID!, title: String, description: String): Challenge!
 }
 `;
 
