@@ -6,10 +6,11 @@ import { Route } from "react-router-dom";
 import { Store } from "redux";
 
 import Header from "./components/Header";
-import Login from "./components/Login";
-import PrivateRoute from "./components/PrivateRoute";
-import WipChallenges from "./components/WipChallenges";
 import client from "./graphql/client";
+import {
+  LoginPage,
+  PrivateRoutesRegistry,
+} from "./pages";
 import { history } from "./redux/ConfigureStore";
 
 export default class App extends React.Component<{ store: Store }, {}> {
@@ -18,12 +19,8 @@ export default class App extends React.Component<{ store: Store }, {}> {
       <ConnectedRouter history={history}>
         <ApolloProvider client={client}>
           <Header />
-          <PrivateRoute exact path="/" component={WipChallenges} />
-          <Route path="/login" component={Login} />
-          <PrivateRoute
-            path="/challenges"
-            component={WipChallenges}
-          />
+          <Route path="/login" component={LoginPage} />
+          <PrivateRoutesRegistry/>
         </ApolloProvider>
       </ConnectedRouter>
     </ReduxProvider>

@@ -18,13 +18,19 @@
 - [X] Admin Login
   - [X] [Mutations](https://www.apollographql.com/docs/react/essentials/mutations.html)
   - [X] Save in Redux
-- [ ] CRUD Challenges
-  - [X] [Queries](https://www.apollographql.com/docs/react/essentials/queries.html)
+- [X] Add "Page" convention
+- [X] CRUD Challenges
+  - [X] List Challenges
+  - [X] Create Challenge
+  - [X] Update Challenge
+  - [ ] Delete Challenge
+  - [X] HOC on redirectable components
 - [ ] CRUD WipChallenges
-  - [ ] challenge_id
-  - [ ] status (enum)
-  - [ ] email
+  - [X] List WIP Challenges
+  - [ ] Create WIP Challenges
+  - [ ] Move WIP Challenges between status
 - [ ] Polir telas
+- [ ] Improve `History.LocationState` type
 
 ## Warnings
 
