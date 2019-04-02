@@ -52,7 +52,8 @@ export function HOC<P extends IRedirectableProps>(Component: React.ComponentType
     }
 
     private get defaultDestination(): LocationDescriptorObject {
-      return this.props.location.state.from || { pathname: "/" };
+      const { from = { pathname: "/challenges" } } = this.props.location.state || {};
+      return from;
     }
   };
 

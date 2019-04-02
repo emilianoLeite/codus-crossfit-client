@@ -30,7 +30,14 @@
   - [ ] Create WIP Challenges
   - [ ] Move WIP Challenges between status
 - [ ] Polir telas
+
+### v0.2
+
 - [ ] Improve `History.LocationState` type
+
+## Issues
+
+- [X] Correctly destruct `location.state.from`
 
 ## Warnings
 
