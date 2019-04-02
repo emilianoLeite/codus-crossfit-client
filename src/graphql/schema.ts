@@ -14,7 +14,7 @@ type User {
 }
 
 type LoginResponse {
-  jwt: String!
+  jwt: ID!
   user: User
 }
 
