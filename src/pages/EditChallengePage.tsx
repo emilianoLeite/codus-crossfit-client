@@ -6,7 +6,7 @@ import { Mutation, MutationFn, Query, QueryResult, MutationResult } from "react-
 import { RouteComponentProps } from "react-router";
 import ChallengeForm from "../components/ChallengeForm";
 import * as Redirectable from "../components/Redirectable";
-import { IChallenge } from "../interfaces/IChallenge";
+import { IEditableChallenge } from "../interfaces/IChallenge";
 
 interface IProps extends Redirectable.IRedirectableProps, RouteComponentProps<{id: string}> {}
 
@@ -40,7 +40,7 @@ const EditChallengePage: React.FunctionComponent<IProps> = (props) => {
   };
 
   const updateChallenge = (updateChallengeMutation: MutationFn, id: string) => {
-    return async ({ title, description }: IChallenge) => {
+    return async ({ title, description }: IEditableChallenge) => {
       await updateChallengeMutation({ variables: { id, description, title } });
       props.redirect("/challenges");
     };

@@ -5,7 +5,7 @@ import { Mutation, MutationFn, MutationResult } from "react-apollo";
 
 import ChallengeForm from "../components/ChallengeForm";
 import * as Redirectable from "../components/Redirectable";
-import { IChallenge } from "../interfaces/IChallenge";
+import { IEditableChallenge } from "../interfaces/IChallenge";
 
 interface IState {
   isChallengeCreated: boolean;
@@ -53,7 +53,7 @@ class NewChallengePage extends React.Component<Redirectable.IRedirectableProps, 
   }
 
   private createChallenge(createChallengeMutation: MutationFn) {
-    return async ({ title, description }: IChallenge) => {
+    return async ({ title, description }: IEditableChallenge) => {
       await createChallengeMutation({ variables: { description, title } });
       this.props.redirect("/challenges");
     };
