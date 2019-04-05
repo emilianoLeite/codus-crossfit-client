@@ -1,5 +1,7 @@
 # Codus Crossfit Client
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/emilianoLeite/codus-crossfit-client.svg)](https://greenkeeper.io/)
+
 ## Roadmap
 
 ### v0.1
