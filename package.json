@@ -7,7 +7,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "tslint --project .",
+    "lint": "eslint \"src/**/*.ts\" \"src/**/*.tsx\"",
     "lint:fix": "yarn lint --fix"
   },
   "dependencies": {
@@ -34,11 +34,11 @@
     "@types/react-redux": "^7.0.1",
     "@types/react-router-dom": "^4.3.1",
     "@types/redux": "^3.6.0",
-    "tslint": "^5.12.1",
+    "@typescript-eslint/eslint-plugin": "^1.6.0",
+    "@typescript-eslint/parser": "^1.6.0",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react-app": "^4.0.1",
     "typescript": "3.3.3"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": [
     ">0.2%",

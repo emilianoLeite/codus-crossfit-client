@@ -14,7 +14,7 @@ const ChallengeList: React.FunctionComponent<{ challenges: IChallenge[] }> = ({ 
             <RelativeLink to={`/${challenge.id}/edit`}>Edit Challenge</RelativeLink>
           </li>
         );
-        })}
+      })}
     </ul>
   );
 };

@@ -7,7 +7,7 @@ function CurrentUser(props: any) {
   return (
     props.user ?
       <span>Current User: {props.user.email}</span> :
-      <Link to={`/login`}> Login </Link>
+      <Link to={"/login"}> Login </Link>
   );
 }
 

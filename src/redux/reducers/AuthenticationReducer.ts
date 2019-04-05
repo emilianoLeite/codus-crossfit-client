@@ -1,4 +1,4 @@
-import { createReducer } from "redux-starter-kit";
+import { createReducer, AnyAction } from "redux-starter-kit";
 import { authenticate, setCurrentUser } from "../actions";
 
 export interface IReduxAuthentication {
@@ -8,11 +8,11 @@ export interface IReduxAuthentication {
     email: string;
   };
 }
-const authenticateReducer = (authentication: IReduxAuthentication, action: any): any => {
+const authenticateReducer = (authentication: IReduxAuthentication): void => {
   authentication.isAuthenticated = true;
 };
 
-const setCurrentUserReducer = (authentication: IReduxAuthentication, action: any): any => {
+const setCurrentUserReducer = (authentication: IReduxAuthentication, action: AnyAction): void => {
   authentication.user = action.payload;
 };
 

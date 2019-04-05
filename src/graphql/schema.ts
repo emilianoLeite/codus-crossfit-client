@@ -69,7 +69,7 @@ addMockFunctionsToSchema({
   mocks: {
     DateTime: () => new Date("2019-02-20"),
     Mutation: () => ({
-      createChallenge: (obj: any, { title, description }: any) => {
+      createChallenge: (obj: any, { title }: any) => {
         if (title === "") {
           throw new GraphQLError("Title cannot be blank");
         } else {

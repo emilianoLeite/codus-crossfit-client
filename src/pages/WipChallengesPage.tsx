@@ -3,7 +3,7 @@ import React from "react";
 import { Query } from "react-apollo";
 import WipChallengesList from "../components/WipChallengesList";
 
-export default function WipChallenges(props: any) {
+export default function WipChallenges() {
   const query = gql`
     {
       wipChallenges {

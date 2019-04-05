@@ -1,0 +1,28 @@
+{
+    "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react-app/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "ecmaFeatures": {
+            "modules": true
+        },
+        "project": "./tsconfig.json",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/explicit-member-accessibility": "off",
+        "@typescript-eslint/indent": ["error", 2],
+        "@typescript-eslint/interface-name-prefix": "off",
+        "@typescript-eslint/promise-function-async": "error",
+        "@typescript-eslint/restrict-plus-operands": "error",
+        "quotes": ["error", "double"],
+        "semi": "warn"
+    }
+}
