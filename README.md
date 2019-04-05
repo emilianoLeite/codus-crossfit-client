@@ -29,11 +29,13 @@
   - [X] List WIP Challenges
   - [ ] Create WIP Challenges
   - [ ] Move WIP Challenges between status
+- [X] Add graphql linter to ensure all queries/mutations are valid
 - [ ] Polir telas
 
 ### v0.2
-
+- [ ] Transform all classes into hooks
 - [ ] Improve `History.LocationState` type
+- [ ] Use Suspense?
 
 ## Issues
 

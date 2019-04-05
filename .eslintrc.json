@@ -13,7 +13,8 @@
         "sourceType": "module"
     },
     "plugins": [
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "graphql"
     ],
     "rules": {
         "@typescript-eslint/explicit-function-return-type": "off",
@@ -22,7 +23,14 @@
         "@typescript-eslint/interface-name-prefix": "off",
         "@typescript-eslint/promise-function-async": "error",
         "@typescript-eslint/restrict-plus-operands": "error",
+        "graphql/template-strings": [
+            "error",
+            {
+                "env": "apollo",
+                "schemaJsonFilepath": "./src/schema.json"
+            }
+        ],
         "quotes": ["error", "double"],
-        "semi": "warn"
+        "semi": "error"
     }
 }

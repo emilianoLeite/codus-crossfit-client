@@ -29,7 +29,7 @@ class LoginPage extends React.Component<IProps, IState> {
   public render() {
     const LOGIN = gql`
       mutation Login($email: String!, $password: String!) {
-        login(email: $email, password: $password) {
+        signIn(email: $email, password: $password) {
           jwt
           user {
             id
@@ -66,7 +66,7 @@ class LoginPage extends React.Component<IProps, IState> {
       const response = await loginMutation({
         variables: { email, password },
       });
-      const user = response && response.data.login.user as IReduxAuthentication;
+      const user = response && response.data.signIn.user as IReduxAuthentication;
 
       this.props.authenticate();
       this.props.setCurrentUser(user);
