@@ -18,7 +18,7 @@
     "graphql": "14.2.1",
     "graphql-tools": "^4.0.4",
     "react": "^16.8.2",
-    "react-apollo": "^2.4.1",
+    "react-apollo": "^2.5.4",
     "react-dom": "^16.8.2",
     "react-redux": "^6.0.1",
     "react-router-dom": "^5.0.0",
