@@ -6,9 +6,9 @@ export const history = createBrowserHistory();
 
 export default function configureStore(preloadedState = {}) {
   return createStore(
-   createRootReducer(history),
-   preloadedState,
-   (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
+    createRootReducer(history),
+    preloadedState,
+    (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
    (window as any).__REDUX_DEVTOOLS_EXTENSION__(),
- );
+  );
 }

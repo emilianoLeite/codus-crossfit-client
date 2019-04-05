@@ -3,17 +3,14 @@ import gql from "graphql-tag";
 import React from "react";
 import { Mutation, MutationFn } from "react-apollo";
 import { connect } from "react-redux";
-import { compose, PayloadActionCreator } from "redux-starter-kit";
+import { compose } from "redux-starter-kit";
 
 import LoginForm, { ILoginForm } from "../components/LoginForm";
 import * as Redirectable from "../components/Redirectable";
 import { authenticate, setCurrentUser } from "../redux/actions";
-import { IReduxAuthentication } from "../redux/reducers/AuthenticationReducer";
+import { IReduxAuthenticationProps } from "../redux/reducers/AuthenticationReducer";
 
-interface IProps extends Redirectable.IRedirectableProps {
-  authenticate: PayloadActionCreator;
-  setCurrentUser: PayloadActionCreator;
-}
+interface IProps extends Redirectable.IRedirectableProps, IReduxAuthenticationProps {}
 
 interface IState {
   from: object;
@@ -21,7 +18,7 @@ interface IState {
 }
 
 class LoginPage extends React.Component<IProps, IState> {
-  constructor(props: any) {
+  constructor(props: IProps) {
     super(props);
     this.submitLogin = this.submitLogin.bind(this);
   }
@@ -29,7 +26,7 @@ class LoginPage extends React.Component<IProps, IState> {
   public render() {
     const LOGIN = gql`
       mutation Login($email: String!, $password: String!) {
-        login(email: $email, password: $password) {
+        signIn(email: $email, password: $password) {
           jwt
           user {
             id
@@ -66,7 +63,8 @@ class LoginPage extends React.Component<IProps, IState> {
       const response = await loginMutation({
         variables: { email, password },
       });
-      const user = response && response.data.login.user as IReduxAuthentication;
+
+      const user = response && response.data.signIn.user;
 
       this.props.authenticate();
       this.props.setCurrentUser(user);
@@ -75,7 +73,7 @@ class LoginPage extends React.Component<IProps, IState> {
   }
 }
 
-export default compose<React.ComponentType>(
+export default compose<React.ComponentType<IProps>>(
   connect(null, { authenticate, setCurrentUser }),
   Redirectable.HOC,
 )(LoginPage);

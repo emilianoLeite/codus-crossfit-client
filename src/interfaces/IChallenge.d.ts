@@ -1,5 +1,5 @@
 export interface IChallenge {
-  id?: string
+  id?: string;
   title: string;
   description: string;
 }

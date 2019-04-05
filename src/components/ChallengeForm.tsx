@@ -18,10 +18,10 @@ const ChallengeForm: React.FunctionComponent<IProps> = ({ challenge, onSubmit }:
   return (
     <form onSubmit={handleSubmit}>
       <fieldset>
-          <legend>
-            {
+        <legend>
+          {
             defaultChallenge.id ? "Edit Challenge" : "Create Challenge"
-            }
+          }
         </legend>
 
         <label htmlFor="title">Title</label>

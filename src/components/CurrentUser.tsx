@@ -1,13 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { IReduxAuthentication } from "../redux/reducers/AuthenticationReducer";
+import { IReduxAuthentication, IReduxUser } from "../redux/reducers/AuthenticationReducer";
 
-function CurrentUser(props: any) {
+function CurrentUser({ user }: { user?: IReduxUser }) {
   return (
-    props.user ?
-      <span>Current User: {props.user.email}</span> :
-      <Link to={`/login`}> Login </Link>
+    user ?
+      <span>Current User: {user.email}</span> :
+      <Link to={"/login"}> Login </Link>
   );
 }
 

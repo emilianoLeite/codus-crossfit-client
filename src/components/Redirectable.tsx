@@ -9,6 +9,10 @@ export interface IRedirectableProps {
   redirect: RedirectableCallback;
 }
 
+function getComponentName<T>(reactComponent: React.ComponentType<T>): string {
+  return reactComponent.displayName || reactComponent.name || "Component";
+}
+
 export function HOC<P extends IRedirectableProps>(Component: React.ComponentType<P>) {
   interface IProps {
     location: Location;
@@ -56,8 +60,4 @@ export function HOC<P extends IRedirectableProps>(Component: React.ComponentType
       return from;
     }
   };
-
-  function getComponentName<T>(reactComponent: React.ComponentType<T>): string {
-    return reactComponent.displayName || reactComponent.name || "Component";
-  }
 }
