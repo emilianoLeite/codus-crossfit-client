@@ -34,6 +34,12 @@
   - [ ] Move WIP Challenges between status
 - [X] Add graphql linter to ensure all queries/mutations are valid
 - [ ] Polir telas
+  - [ ] Beautiful DND
+    - [X] Implement Single list
+    - [ ] Disallow moving itens between same column
+    - [ ] Move cards between columns
+    - [ ] Trigger graphQL mutation when cards are moved between columns
+    - [ ] styles
 
 ### v0.2
 - [ ] Transform all classes into hooks
