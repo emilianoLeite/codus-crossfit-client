@@ -30,9 +30,10 @@ export default function WipChallengesList({ wipChallenges }: { wipChallenges: IW
     setItems(reorderdItems);
   };
 
+  const doNothing = () => { };
 
   return (
-    <DragDropContext onDragEnd={onDragEnd}>
+    <DragDropContext onDragEnd={doNothing}>
       <Droppable droppableId="droppable">
         {(provided, snapshot) => (
           <div

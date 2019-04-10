@@ -36,7 +36,7 @@
 - [ ] Polir telas
   - [ ] Beautiful DND
     - [X] Implement Single list
-    - [ ] Disallow moving itens between same column
+    - [X] Disallow moving itens between same column
     - [ ] Move cards between columns
     - [ ] Trigger graphQL mutation when cards are moved between columns
     - [ ] styles
