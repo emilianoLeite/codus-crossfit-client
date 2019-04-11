@@ -37,8 +37,9 @@
   - [ ] Beautiful DND
     - [X] Implement Single list
     - [X] Disallow moving itens between same column
-    - [ ] Move cards between columns
+    - [X] Move cards between columns
     - [ ] Trigger graphQL mutation when cards are moved between columns
+    - [ ] clean comps up
     - [ ] styles
 
 ### v0.2
