@@ -1,6 +1,8 @@
 import React from "react";
 import { IWipChallenge, ChallengeStatus } from "../interfaces/IWipChallenge";
-import { DraggableLocation, DropResult, DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { DraggableLocation, DropResult, DragDropContext } from "react-beautiful-dnd";
+import WipChallengesBoardColumn from "./WipChallengesBoardColumn";
+import "./WipChallengesBoard.css";
 
 const filterByDoing = ({ status }: IWipChallenge) => status === ChallengeStatus.DOING;
 const filterByDone = ({ status }: IWipChallenge) => status === ChallengeStatus.DONE;
@@ -27,8 +29,6 @@ export default function WipChallengesBoard({ wipChallenges }: { wipChallenges: I
     doingWipChallenges: doingItens,
     doneWipChallenges: doneItens
   };
-  console.log("doing", doingWipChallenges);
-  console.log("done", doneWipChallenges);
 
   const onDragEnd = (result: DropResult) => {
     const { source, destination } = result;
@@ -40,61 +40,18 @@ export default function WipChallengesBoard({ wipChallenges }: { wipChallenges: I
       const sourceList = stateMapping[source.droppableId];
       const destinationList = stateMapping[destination.droppableId];
       const [newDoingItens, newDoneItens] = move(sourceList, destinationList, source, destination);
-
+      console.log(newDoingItens, newDoneItens);
       setDoingItens(newDoingItens);
       setDoneItens(newDoneItens);
     }
   };
 
   return (
-    <DragDropContext onDragEnd={onDragEnd}>
-      <Droppable droppableId="doingWipChallenges">
-        {(provided, snapshot) => (
-          <div
-            ref={provided.innerRef}>
-            {doingItens.map((item, index) => (
-              <Draggable
-                key={item.id}
-                draggableId={item.id}
-                index={index}>
-                {(provided, snapshot) => (
-                  <div
-                    ref={provided.innerRef}
-                    {...provided.draggableProps}
-                    {...provided.dragHandleProps}>
-                    {item.userEmail}
-                  </div>
-                )}
-              </Draggable>
-            ))}
-            {provided.placeholder}
-          </div>
-        )}
-      </Droppable>
-      <Droppable droppableId="doneWipChallenges">
-        {(provided, snapshot) => (
-          <div
-            ref={provided.innerRef}>
-            {doneItens.map((item, index) => (
-              <Draggable
-                key={item.id}
-                draggableId={item.id}
-                index={index}>
-                {(provided, snapshot) => (
-                  <div
-                    ref={provided.innerRef}
-                    {...provided.draggableProps}
-                    {...provided.dragHandleProps}
-                  >
-                    {item.userEmail}
-                  </div>
-                )}
-              </Draggable>
-            ))}
-            {provided.placeholder}
-          </div>
-        )}
-      </Droppable>
-    </DragDropContext>
+    <div className="challenges-board">
+      <DragDropContext onDragEnd={onDragEnd}>
+        <WipChallengesBoardColumn droppableId="doingWipChallenges" items={doingItens} />
+        <WipChallengesBoardColumn droppableId="doneWipChallenges" items={doneItens} />
+      </DragDropContext>
+    </div>
   );
 }
