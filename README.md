@@ -39,6 +39,8 @@
     - [X] Disallow moving itens between same column
     - [X] Move cards between columns
     - [ ] Trigger graphQL mutation when cards are moved between columns
+      - [X] Trigger when challenge is moved to Done
+      - [ ] Trigger when challenge is moved to Doing
     - [ ] clean comps up
     - [ ] styles
 
@@ -46,6 +48,7 @@
 - [ ] Transform all classes into hooks
 - [ ] Improve `History.LocationState` type
 - [ ] Use Suspense?
+- [ ] Deploy using `now`
 
 ## Issues
 

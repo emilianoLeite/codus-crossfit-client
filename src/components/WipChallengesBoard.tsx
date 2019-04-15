@@ -3,6 +3,14 @@ import { IWipChallenge, ChallengeStatus } from "../interfaces/IWipChallenge";
 import { DraggableLocation, DropResult, DragDropContext } from "react-beautiful-dnd";
 import WipChallengesBoardColumn from "./WipChallengesBoardColumn";
 import "./WipChallengesBoard.css";
+import { MutationFn } from "react-apollo";
+
+interface IProps {
+  wipChallenges: IWipChallenge[];
+  mutations: {
+    moveWipChallengeMutation: MutationFn;
+  };
+}
 
 const filterByDoing = ({ status }: IWipChallenge) => status === ChallengeStatus.DOING;
 const filterByDone = ({ status }: IWipChallenge) => status === ChallengeStatus.DONE;
@@ -18,7 +26,7 @@ const move = (sourceList: IWipChallenge[], destinationList: IWipChallenge[], sou
   return [sourceClone, destClone];
 };
 
-export default function WipChallengesBoard({ wipChallenges }: { wipChallenges: IWipChallenge[] }) {
+export default function WipChallengesBoard({ wipChallenges, mutations }: IProps) {
   const doingWipChallenges = (wipChallenges as IWipChallenge[]).filter(filterByDoing);
   const doneWipChallenges = (wipChallenges as IWipChallenge[]).filter(filterByDone);
 
@@ -37,12 +45,20 @@ export default function WipChallengesBoard({ wipChallenges }: { wipChallenges: I
     if (!destination) { return; }
 
     if (source.droppableId !== destination.droppableId) {
-      const sourceList = stateMapping[source.droppableId];
-      const destinationList = stateMapping[destination.droppableId];
-      const [newDoingItens, newDoneItens] = move(sourceList, destinationList, source, destination);
-      console.log(newDoingItens, newDoneItens);
-      setDoingItens(newDoingItens);
-      setDoneItens(newDoneItens);
+      if (source.droppableId === "doingWipChallenges" && destination.droppableId === "doneWipChallenges") {
+        const sourceList = stateMapping[source.droppableId];
+        const destinationList = stateMapping[destination.droppableId];
+        mutations.moveWipChallengeMutation(
+          { variables: { id: sourceList[source.index].id, status: "DONE" } }
+        ).then((result) => {
+          if(!result) { return; }
+          console.log(result);
+          const [newDoingItens, newDoneItens] = move(sourceList, destinationList, source, destination);
+          console.log(newDoingItens, newDoneItens);
+          setDoingItens(newDoingItens);
+          setDoneItens(newDoneItens);
+        });
+      }
     }
   };
 
