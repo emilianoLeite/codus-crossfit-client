@@ -16,26 +16,26 @@ const filterByDoing = ({ status }: IWipChallenge) => status === ChallengeStatus.
 const filterByDone = ({ status }: IWipChallenge) => status === ChallengeStatus.DONE;
 const move = (sourceList: IWipChallenge[], destinationList: IWipChallenge[], source: DraggableLocation, destination: DraggableLocation) => {
 
-  const sourceClone = Array.from(sourceList);
+  const newSourceList = Array.from(sourceList);
 
-  const destClone = Array.from(destinationList);
-  const [removed] = sourceClone.splice(source.index, 1);
+  const newDestinationList = Array.from(destinationList);
+  const [removed] = newSourceList.splice(source.index, 1);
 
-  destClone.splice(destination.index, 0, removed);
+  newDestinationList.splice(destination.index, 0, removed);
 
-  return [sourceClone, destClone];
+  return { newSourceList, newDestinationList };
 };
 
 export default function WipChallengesBoard({ wipChallenges, mutations }: IProps) {
   const doingWipChallenges = (wipChallenges as IWipChallenge[]).filter(filterByDoing);
   const doneWipChallenges = (wipChallenges as IWipChallenge[]).filter(filterByDone);
 
-  const [doingItens, setDoingItens] = React.useState(doingWipChallenges);
-  const [doneItens, setDoneItens] = React.useState(doneWipChallenges);
+  const [doingItems, setDoingItems] = React.useState(doingWipChallenges);
+  const [doneItems, setDoneItems] = React.useState(doneWipChallenges);
 
   const stateMapping: any = {
-    doingWipChallenges: doingItens,
-    doneWipChallenges: doneItens
+    doingWipChallenges: doingItems,
+    doneWipChallenges: doneItems
   };
 
   const onDragEnd = (result: DropResult) => {
@@ -44,39 +44,40 @@ export default function WipChallengesBoard({ wipChallenges, mutations }: IProps)
     // dropped outside the list
     if (!destination) { return; }
 
-    if (source.droppableId !== destination.droppableId) {
-      if (source.droppableId === "doingWipChallenges" && destination.droppableId === "doneWipChallenges") {
-        const sourceList = stateMapping[source.droppableId];
-        const destinationList = stateMapping[destination.droppableId];
-        mutations.moveWipChallengeMutation(
-          { variables: { id: sourceList[source.index].id, status: "DONE" } }
-        ).then((result) => {
-          if(!result) { return; }
-          const [newDoingItens, newDoneItens] = move(sourceList, destinationList, source, destination);
-          setDoingItens(newDoingItens);
-          setDoneItens(newDoneItens);
-        });
-      }
-      if (source.droppableId === "doneWipChallenges" && destination.droppableId === "doingWipChallenges") {
-        const sourceList = stateMapping[source.droppableId];
-        const destinationList = stateMapping[destination.droppableId];
-        mutations.moveWipChallengeMutation(
-          { variables: { id: sourceList[source.index].id, status: "DOING" } }
-        ).then((result) => {
-          if(!result) { return; }
-          const [newDoneItens, newDoingItens] = move(sourceList, destinationList, source, destination);
-          setDoingItens(newDoingItens);
-          setDoneItens(newDoneItens);
-        });
-      }
+    const sourceList = stateMapping[source.droppableId];
+    const destinationList = stateMapping[destination.droppableId];
+    const moveItemsTo = async (status: string) => {
+      const result = await mutations.moveWipChallengeMutation(
+        { variables: { id: sourceList[source.index].id, status } }
+      );
+
+      if (!result) { throw new Error("WipChallenge could not be moved"); }
+      return move(sourceList, destinationList, source, destination);
+
+    };
+
+    if (source.droppableId === "doingWipChallenges" && destination.droppableId === "doneWipChallenges") {
+      moveItemsTo("DONE").then(({ newSourceList, newDestinationList }) => {
+        setDoingItems(newSourceList);
+        setDoneItems(newDestinationList);
+      }).catch(() => {
+        // TODO: show error pop-up
+      });
+    } else if (source.droppableId === "doneWipChallenges" && destination.droppableId === "doingWipChallenges") {
+      moveItemsTo("DOING").then(({ newSourceList, newDestinationList }) => {
+        setDoneItems(newSourceList);
+        setDoingItems(newDestinationList);
+      }).catch(() => {
+        // TODO: show error pop-up
+      });
     }
   };
 
   return (
     <div className="challenges-board">
       <DragDropContext onDragEnd={onDragEnd}>
-        <WipChallengesBoardColumn droppableId="doingWipChallenges" items={doingItens} />
-        <WipChallengesBoardColumn droppableId="doneWipChallenges" items={doneItens} />
+        <WipChallengesBoardColumn droppableId="doingWipChallenges" items={doingItems} />
+        <WipChallengesBoardColumn droppableId="doneWipChallenges" items={doneItems} />
       </DragDropContext>
     </div>
   );
