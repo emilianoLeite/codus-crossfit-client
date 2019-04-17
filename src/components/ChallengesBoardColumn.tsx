@@ -1,15 +1,15 @@
 import React from "react";
 import { Droppable, Draggable } from "react-beautiful-dnd";
-import { IWipChallenge } from "../interfaces/IWipChallenge";
+import { IChallenge } from "../interfaces/IChallenge";
 
 interface IProps {
   droppableId: string;
-  items: IWipChallenge[];
+  items: IChallenge[];
 }
 
-export default function WipChallengesBoardDoingColumn({ droppableId, items }: IProps) {
+export default function ChallengesBoardDoingColumn({ items }: IProps) {
   return (
-    <Droppable droppableId={droppableId}>
+    <Droppable droppableId="todoChallenges">
       {(provided, snapshot) => (
         <div
           className="board-column"
@@ -25,7 +25,7 @@ export default function WipChallengesBoardDoingColumn({ droppableId, items }: IP
                   ref={provided.innerRef}
                   {...provided.draggableProps}
                   {...provided.dragHandleProps}>
-                  {item.userEmail}
+                  {item.title}
                 </div>
               )}
             </Draggable>
