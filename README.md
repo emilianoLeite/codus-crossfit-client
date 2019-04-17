@@ -31,20 +31,22 @@
 - [ ] CRUD WipChallenges
   - [X] List WIP Challenges
   - [ ] Create WIP Challenges
-  - [ ] Move WIP Challenges between status
+  - [X] Move WIP Challenges between status
 - [X] Add graphql linter to ensure all queries/mutations are valid
 - [ ] Polir telas
   - [ ] Beautiful DND
     - [X] Implement Single list
     - [X] Disallow moving itens between same column
     - [X] Move cards between columns
-    - [ ] Trigger graphQL mutation when cards are moved between columns
+    - [X] Trigger graphQL mutation when cards are moved between columns
       - [X] Trigger when challenge is moved to Done
-      - [ ] Trigger when challenge is moved to Doing
+      - [X] Trigger when challenge is moved to Doing
     - [ ] clean comps up
     - [ ] styles
+- [ ] Send JWT in request header
 
 ### v0.2
+
 - [ ] Transform all classes into hooks
 - [ ] Improve `History.LocationState` type
 - [ ] Use Suspense?

@@ -52,9 +52,19 @@ export default function WipChallengesBoard({ wipChallenges, mutations }: IProps)
           { variables: { id: sourceList[source.index].id, status: "DONE" } }
         ).then((result) => {
           if(!result) { return; }
-          console.log(result);
           const [newDoingItens, newDoneItens] = move(sourceList, destinationList, source, destination);
-          console.log(newDoingItens, newDoneItens);
+          setDoingItens(newDoingItens);
+          setDoneItens(newDoneItens);
+        });
+      }
+      if (source.droppableId === "doneWipChallenges" && destination.droppableId === "doingWipChallenges") {
+        const sourceList = stateMapping[source.droppableId];
+        const destinationList = stateMapping[destination.droppableId];
+        mutations.moveWipChallengeMutation(
+          { variables: { id: sourceList[source.index].id, status: "DOING" } }
+        ).then((result) => {
+          if(!result) { return; }
+          const [newDoneItens, newDoingItens] = move(sourceList, destinationList, source, destination);
           setDoingItens(newDoingItens);
           setDoneItens(newDoneItens);
         });
