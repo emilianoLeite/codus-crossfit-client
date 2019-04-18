@@ -1,7 +1,7 @@
 import { ApolloError } from "apollo-boost";
 import gql from "graphql-tag";
 import React from "react";
-import { Mutation, MutationFn, Query, QueryResult, MutationResult, MutationProps } from "react-apollo";
+import { Mutation, MutationFn, Query, QueryResult, MutationResult } from "react-apollo";
 
 import { RouteComponentProps } from "react-router";
 import ChallengeForm from "../components/ChallengeForm";
