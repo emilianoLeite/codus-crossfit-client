@@ -1,7 +1,7 @@
 import { ApolloError } from "apollo-boost";
 import gql from "graphql-tag";
 import React from "react";
-import { Mutation, MutationFn } from "react-apollo";
+import { Mutation, MutationFn, MutationResult } from "react-apollo";
 import { connect } from "react-redux";
 import { compose } from "redux-starter-kit";
 
@@ -48,7 +48,7 @@ class LoginPage extends React.Component<IProps, IState> {
 
     return (
       <Mutation mutation={LOGIN}>
-        {(login, { error }) => (
+        {(login: MutationFn, { error }: MutationResult) => (
           <div>
             {error && graphQLErrorMessages(error)}
             <LoginForm onSubmit={this.submitLogin(login)} />

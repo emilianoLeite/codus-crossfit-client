@@ -1,7 +1,7 @@
 import React from "react";
 
 import gql from "graphql-tag";
-import { Query } from "react-apollo";
+import { Query, QueryResult } from "react-apollo";
 import ChallengeList from "../components/ChallengeList";
 import RelativeLink from "../components/RelativeLink";
 import "../styles/ChallengesPage.css";
@@ -16,7 +16,7 @@ const ChallengesPage: React.FunctionComponent = () => {
     }`;
     return (
       <Query query={ALL_CHALLENGES}>
-        {({ loading, error, data }) => {
+        {({ loading, error, data }: QueryResult) => {
           if (loading) { return <p>Loading...</p>; }
           if (error) { return <p>Error ☹</p>; }
 

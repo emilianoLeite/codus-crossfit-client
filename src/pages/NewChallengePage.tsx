@@ -1,7 +1,7 @@
 import { ApolloError } from "apollo-boost";
 import gql from "graphql-tag";
 import React from "react";
-import { Mutation, MutationFn } from "react-apollo";
+import { Mutation, MutationFn, MutationResult } from "react-apollo";
 
 import ChallengeForm from "../components/ChallengeForm";
 import * as Redirectable from "../components/Redirectable";
@@ -40,7 +40,7 @@ class NewChallengePage extends React.Component<Redirectable.IRedirectableProps, 
 
     return (
       <Mutation mutation={CREATE_CHALLENGE}>
-        {(createChallenge, { error }) => (
+        {(createChallenge: MutationFn, { error }: MutationResult) => (
           <div>
             {error && graphQLErrorMessages(error)}
             <ChallengeForm
