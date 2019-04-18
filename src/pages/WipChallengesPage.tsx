@@ -1,6 +1,6 @@
 import gql from "graphql-tag";
 import React from "react";
-import { Query } from "react-apollo";
+import { Query, QueryResult } from "react-apollo";
 import WipChallengesList from "../components/WipChallengesList";
 
 export default function WipChallenges() {
@@ -14,7 +14,7 @@ export default function WipChallenges() {
   `;
   return (
     <Query query={query}>
-      {({ loading, error, data }) => {
+      {({ loading, error, data }: QueryResult) => {
         if (loading) { return <p>Loading...</p>; }
         if (error) { return <p>Error ☹</p>; }
 
