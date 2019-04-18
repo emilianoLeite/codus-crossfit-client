@@ -1,5 +1,5 @@
 import React from "react";
-import { IWipChallenge, ChallengeStatus } from "../interfaces/IWipChallenge";
+import { IWipChallenge, isDoing, isDone } from "../interfaces/IWipChallenge";
 import { DraggableLocation, DropResult, DragDropContext } from "react-beautiful-dnd";
 import WipChallengesBoardColumn from "./WipChallengesBoardColumn";
 import "./WipChallengesBoard.css";
@@ -12,8 +12,6 @@ interface IProps {
   };
 }
 
-const filterByDoing = ({ status }: IWipChallenge) => status === ChallengeStatus.DOING;
-const filterByDone = ({ status }: IWipChallenge) => status === ChallengeStatus.DONE;
 const move = (sourceList: IWipChallenge[], destinationList: IWipChallenge[], source: DraggableLocation, destination: DraggableLocation) => {
 
   const newSourceList = Array.from(sourceList);
@@ -27,8 +25,8 @@ const move = (sourceList: IWipChallenge[], destinationList: IWipChallenge[], sou
 };
 
 export default function WipChallengesBoard({ wipChallenges, mutations }: IProps) {
-  const doingWipChallenges = (wipChallenges as IWipChallenge[]).filter(filterByDoing);
-  const doneWipChallenges = (wipChallenges as IWipChallenge[]).filter(filterByDone);
+  const doingWipChallenges = (wipChallenges as IWipChallenge[]).filter(isDoing);
+  const doneWipChallenges = (wipChallenges as IWipChallenge[]).filter(isDone);
 
   const [doingItems, setDoingItems] = React.useState(doingWipChallenges);
   const [doneItems, setDoneItems] = React.useState(doneWipChallenges);

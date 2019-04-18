@@ -9,3 +9,6 @@ export enum ChallengeStatus {
   DONE = "DONE"
 }
 
+
+export const isDoing = ({ status }: IWipChallenge) => status === ChallengeStatus.DOING;
+export const isDone = ({ status }: IWipChallenge) => status === ChallengeStatus.DONE;
