@@ -18,6 +18,16 @@ export default function WipChallengesPage() {
     }
   `;
 
+  const CREATE_WIP_CHALLENGE = gql`
+    mutation CreateWipChallenge($challengeId: ID!, $email: String!) {
+      createWipChallenge(challengeId: $challengeId, userEmail: $email) {
+        id
+        userEmail
+        status
+      }
+    }
+  `;
+
   const MOVE_WIP_CHALLENGE = gql`
     mutation MoveWipChallenge($id: ID!, $status: ChallengeStatus) {
       moveWipChallenge(id: $id, newStatus: $status) {
@@ -35,12 +45,16 @@ export default function WipChallengesPage() {
 
         return (
           <Mutation mutation={MOVE_WIP_CHALLENGE}>
-            {(moveWipChallengeMutation: MutationFn, { error }: MutationResult) => (
-              <WipChallengesBoard
-                challenges={data.challenges}
-                wipChallenges={data.wipChallenges}
-                mutations={{ moveWipChallengeMutation }}
-              />
+            {(moveWipChallengeMutation: MutationFn, { error: moveMutationError }: MutationResult) => (
+              <Mutation mutation={CREATE_WIP_CHALLENGE}>
+                {(createWipChallengeMutation: MutationFn, { error: createMutationError }: MutationResult) => (
+                  <WipChallengesBoard
+                    challenges={data.challenges}
+                    wipChallenges={data.wipChallenges}
+                    mutations={{ createWipChallengeMutation, moveWipChallengeMutation }}
+                  />
+                )}
+              </Mutation>
             )}
           </Mutation>
         );

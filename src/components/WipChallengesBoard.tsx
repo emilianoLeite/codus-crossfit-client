@@ -11,6 +11,7 @@ interface IProps {
   challenges: IChallenge[];
   wipChallenges: IWipChallenge[];
   mutations: {
+    createWipChallengeMutation: MutationFn;
     moveWipChallengeMutation: MutationFn;
   };
 }
@@ -47,6 +48,14 @@ export default function WipChallengesBoard({ challenges, wipChallenges, mutation
 
     const sourceList = stateMapping[source.droppableId];
     const destinationList = stateMapping[destination.droppableId];
+    const createWipChallenge = async (challengeId: string, email: string) => {
+      const result = await mutations.createWipChallengeMutation(
+        { variables: { challengeId, email } }
+      );
+
+      if (!result) { throw new Error("WipChallenge could not be created"); }
+      return doingItems.concat(result.data.createWipChallenge);
+    };
     const moveItemsTo = async (status: string) => {
       const result = await mutations.moveWipChallengeMutation(
         { variables: { id: sourceList[source.index].id, status } }
@@ -54,10 +63,17 @@ export default function WipChallengesBoard({ challenges, wipChallenges, mutation
 
       if (!result) { throw new Error("WipChallenge could not be moved"); }
       return move(sourceList, destinationList, source, destination);
-
     };
 
-    if (source.droppableId === "doingWipChallenges" && destination.droppableId === "doneWipChallenges") {
+    if (source.droppableId === "todoChallenges" && destination.droppableId === "doingWipChallenges") {
+      createWipChallenge(challenges[source.index].id, "front@crossfit.com")
+        .then((newDoingItems) => {
+          setDoingItems(newDoingItems);
+        })
+        .catch(() => {
+          // TODO: show error pop-up
+        });
+    } else if (source.droppableId === "doingWipChallenges" && destination.droppableId === "doneWipChallenges") {
       moveItemsTo("DONE").then(({ newSourceList, newDestinationList }) => {
         setDoingItems(newSourceList);
         setDoneItems(newDestinationList);
