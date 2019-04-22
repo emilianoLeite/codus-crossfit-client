@@ -30,7 +30,7 @@
   - [X] HOC on redirectable components
 - [ ] CRUD WipChallenges
   - [X] List WIP Challenges
-  - [ ] Create WIP Challenges
+  - [X] Create WIP Challenges
   - [X] Move WIP Challenges between status
 - [X] Add graphql linter to ensure all queries/mutations are valid
 - [ ] Polir telas
@@ -44,14 +44,18 @@
       - [X] Trigger when challenge is moved from Todo to Doing
     - [X] Add `ChallengesBoardColumn` to `Board`
     - [ ] clean comps up
+      - [ ] Add direction abstraction
+      - [ ] Investigate creating migrations without react-apollo
     - [ ] styles
+- [ ] Update to "typescript": "^3.4" and add incremental flag
 - [ ] Send JWT in request header
 
 ### v0.2
 
-- [ ] Transform all classes into hooks
-- [ ] Improve `History.LocationState` type
+- [ ] Use [codegen](https://graphql-code-generator.com/)
 - [ ] Use Suspense?
+- [ ] Improve `History.LocationState` type
+- [ ] Transform all classes into hooks
 - [ ] Deploy using `now`
 
 ## Issues
