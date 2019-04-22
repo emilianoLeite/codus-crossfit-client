@@ -6,6 +6,10 @@ import WipChallengesBoard from "../components/WipChallengesBoard";
 export default function WipChallengesPage() {
   const query = gql`
     {
+      challenges {
+        id
+        title
+      }
       wipChallenges {
         id
         userEmail
@@ -33,6 +37,7 @@ export default function WipChallengesPage() {
           <Mutation mutation={MOVE_WIP_CHALLENGE}>
             {(moveWipChallengeMutation: MutationFn, { error }: MutationResult) => (
               <WipChallengesBoard
+                challenges={data.challenges}
                 wipChallenges={data.wipChallenges}
                 mutations={{ moveWipChallengeMutation }}
               />

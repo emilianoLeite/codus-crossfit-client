@@ -41,6 +41,7 @@
     - [X] Trigger graphQL mutation when cards are moved between columns
       - [X] Trigger when challenge is moved to Done
       - [X] Trigger when challenge is moved to Doing
+    - [X] Add `ChallengesBoardColumn` to `Board`
     - [ ] clean comps up
     - [ ] styles
 - [ ] Send JWT in request header

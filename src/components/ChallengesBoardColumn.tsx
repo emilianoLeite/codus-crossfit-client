@@ -3,11 +3,10 @@ import { Droppable, Draggable } from "react-beautiful-dnd";
 import { IChallenge } from "../interfaces/IChallenge";
 
 interface IProps {
-  droppableId: string;
   items: IChallenge[];
 }
 
-export default function ChallengesBoardDoingColumn({ items }: IProps) {
+export default function ChallengesBoardColumn({ items }: IProps) {
   return (
     <Droppable droppableId="todoChallenges">
       {(provided, snapshot) => (

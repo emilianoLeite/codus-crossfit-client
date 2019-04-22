@@ -4,8 +4,11 @@ import { DraggableLocation, DropResult, DragDropContext } from "react-beautiful-
 import WipChallengesBoardColumn from "./WipChallengesBoardColumn";
 import "./WipChallengesBoard.css";
 import { MutationFn } from "react-apollo";
+import { IChallenge } from "../interfaces/IChallenge";
+import ChallengesBoardColumn from "./ChallengesBoardColumn";
 
 interface IProps {
+  challenges: IChallenge[];
   wipChallenges: IWipChallenge[];
   mutations: {
     moveWipChallengeMutation: MutationFn;
@@ -24,7 +27,7 @@ const move = (sourceList: IWipChallenge[], destinationList: IWipChallenge[], sou
   return { newSourceList, newDestinationList };
 };
 
-export default function WipChallengesBoard({ wipChallenges, mutations }: IProps) {
+export default function WipChallengesBoard({ challenges, wipChallenges, mutations }: IProps) {
   const doingWipChallenges = (wipChallenges as IWipChallenge[]).filter(isDoing);
   const doneWipChallenges = (wipChallenges as IWipChallenge[]).filter(isDone);
 
@@ -74,6 +77,7 @@ export default function WipChallengesBoard({ wipChallenges, mutations }: IProps)
   return (
     <div className="challenges-board">
       <DragDropContext onDragEnd={onDragEnd}>
+        <ChallengesBoardColumn items={challenges} />
         <WipChallengesBoardColumn droppableId="doingWipChallenges" items={doingItems} />
         <WipChallengesBoardColumn droppableId="doneWipChallenges" items={doneItems} />
       </DragDropContext>
