@@ -66,13 +66,17 @@ export default function WipChallengesBoard({ challenges, wipChallenges, mutation
     };
 
     if (source.droppableId === "todoChallenges" && destination.droppableId === "doingWipChallenges") {
-      createWipChallenge(challenges[source.index].id, "front@crossfit.com")
-        .then((newDoingItems) => {
-          setDoingItems(newDoingItems);
-        })
-        .catch(() => {
-          // TODO: show error pop-up
-        });
+      const email = window.prompt("Please inform your email: ");
+
+      if (email) {
+        createWipChallenge(challenges[source.index].id, email)
+          .then((newDoingItems) => {
+            setDoingItems(newDoingItems);
+          })
+          .catch(() => {
+            // TODO: show error pop-up
+          });
+      }
     } else if (source.droppableId === "doingWipChallenges" && destination.droppableId === "doneWipChallenges") {
       moveItemsTo("DONE").then(({ newSourceList, newDestinationList }) => {
         setDoingItems(newSourceList);

@@ -41,7 +41,8 @@
     - [X] Trigger graphQL mutation when cards are moved between columns
       - [X] Trigger when challenge is moved to Done
       - [X] Trigger when challenge is moved to Doing
-      - [X] Trigger when challenge is moved from Todo to Doing
+      - [X] Trigger when challenge is moved from TODO to Doing
+        - [X] Ask email when moving from TODO
     - [X] Add `ChallengesBoardColumn` to `Board`
     - [ ] clean comps up
       - [ ] Add direction abstraction
@@ -53,7 +54,7 @@
 ### v0.2
 
 - [ ] Use [codegen](https://graphql-code-generator.com/)
-- [ ] Use Suspense?
+- [ ] Use Suspense + lazy
 - [ ] Improve `History.LocationState` type
 - [ ] Transform all classes into hooks
 - [ ] Deploy using `now`
