@@ -17,7 +17,7 @@ export default class App extends React.Component<{ store: Store }, {}> {
   public render() { return (
     <ReduxProvider store={this.props.store}>
       <ConnectedRouter history={history}>
-        <ApolloProvider client={client}>
+        <ApolloProvider client={client(this.props.store)}>
           <Header />
           <Route path="/login" component={LoginPage} />
           <PrivateRoutesRegistry/>

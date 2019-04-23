@@ -26,13 +26,16 @@
   - [X] List Challenges
   - [X] Create Challenge
   - [X] Update Challenge
-  - [ ] Delete Challenge
+  - [ ] Delete Challenge?
   - [X] HOC on redirectable components
 - [ ] CRUD WipChallenges
   - [X] List WIP Challenges
   - [X] Create WIP Challenges
   - [X] Move WIP Challenges between status
+  - [ ] Delete WIP Challenge
 - [X] Add graphql linter to ensure all queries/mutations are valid
+- [X] Send JWT in request header
+  - [ ] Save JWT on LocalStorage/Cookie
 - [ ] Polir telas
   - [ ] Beautiful DND
     - [X] Implement Single list
@@ -43,13 +46,14 @@
       - [X] Trigger when challenge is moved to Doing
       - [X] Trigger when challenge is moved from TODO to Doing
         - [X] Ask email when moving from TODO
+      - [ ] [Bug] Unlink cards with same index across different column
     - [X] Add `ChallengesBoardColumn` to `Board`
     - [ ] clean comps up
       - [ ] Add direction abstraction
       - [ ] Investigate creating migrations without react-apollo
-    - [ ] styles
+  - [ ] styles
+    - [ ] Add emotion
 - [ ] Update to "typescript": "^3.4" and add incremental flag
-- [ ] Send JWT in request header
 
 ### v0.2
 

@@ -9,6 +9,7 @@ export interface IReduxAuthentication {
 export interface IReduxUser {
   id: string;
   email: string;
+  jwt: string;
 }
 
 export interface IReduxAuthenticationProps {
