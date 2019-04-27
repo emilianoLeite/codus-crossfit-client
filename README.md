@@ -35,7 +35,7 @@
 - [X] Send JWT in request header
 - [X] Better delineate public/private pages
   - [X] Make `WipChallengesPage` public
-- [ ] Polir telas
+- [X] Polir telas
   - [X] Beautiful DND
     - [X] Implement Single list
     - [X] Disallow moving itens between same column
@@ -47,10 +47,10 @@
       - [X] Trigger when challenge is moved from TODO to Doing
         - [X] Ask email when moving from TODO
     - [X] Add `ChallengesBoardColumn` to `Board`
-  - [ ] styles
+  - [X] styles
     - [X] Add emotion
     - [X] Add `min-width` to board columns
-    - [ ] Add title to board columns
+    - [X] Add title to board columns
 
 ### v0.2
 
@@ -69,6 +69,7 @@
 - [ ] Improve `History.LocationState` type
 - [ ] Transform all classes into hooks
 - [ ] Deploy using `now`
+- [ ] Share render logic between all three column components
 
 ## Issues
 

@@ -98,9 +98,9 @@ export default function WipChallengesBoard({ challenges, wipChallenges, mutation
   return (
     <div css={boardStyle}>
       <DragDropContext onDragEnd={onDragEnd}>
-        <ChallengesBoardColumn items={challenges} />
-        <WipChallengesBoardColumn droppableId="doingWipChallenges" items={doingItems} />
-        <WipChallengesBoardColumn droppableId="doneWipChallenges" items={doneItems} />
+        <ChallengesBoardColumn title="TODO" items={challenges} />
+        <WipChallengesBoardColumn droppableId="doingWipChallenges" title="Doing" items={doingItems} />
+        <WipChallengesBoardColumn droppableId="doneWipChallenges" title="Done" items={doneItems} />
       </DragDropContext>
     </div>
   );

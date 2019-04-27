@@ -9,17 +9,19 @@ import {
   boardItemStyle,
 } from "../styles/components/Board";
 interface IProps {
+  title: string;
   droppableId: string;
   items: IWipChallenge[];
 }
 
-export default function WipChallengesBoardColumn({ droppableId, items }: IProps) {
+export default function WipChallengesBoardColumn({ droppableId, items, title }: IProps) {
   return (
     <Droppable droppableId={droppableId}>
       {(provided, snapshot) => (
         <div
           css={boardColumnStyle}
           ref={provided.innerRef}>
+          <h2>{title}</h2>
           {items.map((item, index) => (
             <Draggable
               key={item.id}

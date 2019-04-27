@@ -23,6 +23,10 @@ export const boardColumnStyle = css`
       grid-column-start: 1;
     }
   }
+
+  h2 {
+    margin: 0
+  }
 `;
 
 export const boardItemStyle = css`

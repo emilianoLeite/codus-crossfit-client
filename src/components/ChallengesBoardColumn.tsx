@@ -11,16 +11,18 @@ import {
 
 
 interface IProps {
+  title: string;
   items: IChallenge[];
 }
 
-export default function ChallengesBoardColumn({ items }: IProps) {
+export default function ChallengesBoardColumn({ title, items }: IProps) {
   return (
     <Droppable droppableId="todoChallenges">
       {(provided, snapshot) => (
         <div
           css={boardColumnStyle}
           ref={provided.innerRef}>
+          <h2>{title}</h2>
           {items.map((item, index) => (
             <Draggable
               key={item.id}
