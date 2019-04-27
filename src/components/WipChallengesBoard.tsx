@@ -2,7 +2,7 @@ import React from "react";
 import { IWipChallenge, isDoing, isDone } from "../interfaces/IWipChallenge";
 import { DraggableLocation, DropResult, DragDropContext } from "react-beautiful-dnd";
 import WipChallengesBoardColumn from "./WipChallengesBoardColumn";
-import "./WipChallengesBoard.css";
+import { boardStyle } from "../styles/components/Board";
 import { MutationFn } from "react-apollo";
 import { IChallenge } from "../interfaces/IChallenge";
 import ChallengesBoardColumn from "./ChallengesBoardColumn";
@@ -92,7 +92,7 @@ export default function WipChallengesBoard({ challenges, wipChallenges, mutation
   };
 
   return (
-    <div className="challenges-board">
+    <div className={boardStyle}>
       <DragDropContext onDragEnd={onDragEnd}>
         <ChallengesBoardColumn items={challenges} />
         <WipChallengesBoardColumn droppableId="doingWipChallenges" items={doingItems} />
