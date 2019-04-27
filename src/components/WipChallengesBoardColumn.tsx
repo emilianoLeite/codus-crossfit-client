@@ -1,4 +1,7 @@
+/** @jsx jsx */
+
 import React from "react";
+import { jsx } from "@emotion/core";
 import { Droppable, Draggable } from "react-beautiful-dnd";
 import { IWipChallenge } from "../interfaces/IWipChallenge";
 import {
@@ -10,12 +13,12 @@ interface IProps {
   items: IWipChallenge[];
 }
 
-export default function WipChallengesBoardDoingColumn({ droppableId, items }: IProps) {
+export default function WipChallengesBoardColumn({ droppableId, items }: IProps) {
   return (
     <Droppable droppableId={droppableId}>
       {(provided, snapshot) => (
         <div
-          className={boardColumnStyle}
+          css={boardColumnStyle}
           ref={provided.innerRef}>
           {items.map((item, index) => (
             <Draggable
@@ -24,7 +27,7 @@ export default function WipChallengesBoardDoingColumn({ droppableId, items }: IP
               index={index}>
               {(provided, snapshot) => (
                 <div
-                  className={boardItemStyle}
+                  css={boardItemStyle}
                   ref={provided.innerRef}
                   {...provided.draggableProps}
                   {...provided.dragHandleProps}>

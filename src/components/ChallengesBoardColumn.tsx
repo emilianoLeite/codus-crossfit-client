@@ -1,4 +1,7 @@
+/** @jsx jsx */
+
 import React from "react";
+import { jsx } from "@emotion/core";
 import { Droppable, Draggable } from "react-beautiful-dnd";
 import { IChallenge } from "../interfaces/IChallenge";
 import {
@@ -16,7 +19,7 @@ export default function ChallengesBoardColumn({ items }: IProps) {
     <Droppable droppableId="todoChallenges">
       {(provided, snapshot) => (
         <div
-          className={boardColumnStyle}
+          css={boardColumnStyle}
           ref={provided.innerRef}>
           {items.map((item, index) => (
             <Draggable
@@ -25,7 +28,7 @@ export default function ChallengesBoardColumn({ items }: IProps) {
               index={index}>
               {(provided, snapshot) => (
                 <div
-                  className={boardItemStyle}
+                  css={boardItemStyle}
                   ref={provided.innerRef}
                   {...provided.draggableProps}
                   {...provided.dragHandleProps}>

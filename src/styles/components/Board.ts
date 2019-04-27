@@ -1,4 +1,4 @@
-import { css } from "emotion";
+import { css } from "@emotion/core";
 
 export const boardStyle = css`
   display: grid;
