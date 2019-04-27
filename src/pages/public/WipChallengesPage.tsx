@@ -1,7 +1,7 @@
 import gql from "graphql-tag";
 import React from "react";
 import { Mutation, Query, QueryResult, MutationResult, MutationFn } from "react-apollo";
-import WipChallengesBoard from "../components/WipChallengesBoard";
+import WipChallengesBoard from "../../components/WipChallengesBoard";
 
 export default function WipChallengesPage() {
   const query = gql`
