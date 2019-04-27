@@ -70,27 +70,24 @@ export default function WipChallengesBoard({ challenges, wipChallenges, mutation
 
       if (email) {
         createWipChallenge(challenges[source.index].id, email)
-          .then((newDoingItems) => {
-            setDoingItems(newDoingItems);
-          })
-          .catch(() => {
-            // TODO: show error pop-up
-          });
+          .then(setDoingItems)
+          .catch(console.error);
       }
     } else if (source.droppableId === "doingWipChallenges" && destination.droppableId === "doneWipChallenges") {
-      moveItemsTo("DONE").then(({ newSourceList, newDestinationList }) => {
-        setDoingItems(newSourceList);
-        setDoneItems(newDestinationList);
-      }).catch(() => {
-        // TODO: show error pop-up
-      });
+      moveItemsTo("DONE")
+        .then(({ newSourceList, newDestinationList }) => {
+          setDoingItems(newSourceList);
+          setDoneItems(newDestinationList);
+        })
+        .catch(console.error);
+
     } else if (source.droppableId === "doneWipChallenges" && destination.droppableId === "doingWipChallenges") {
-      moveItemsTo("DOING").then(({ newSourceList, newDestinationList }) => {
-        setDoneItems(newSourceList);
-        setDoingItems(newDestinationList);
-      }).catch(() => {
-        // TODO: show error pop-up
-      });
+      moveItemsTo("DOING")
+        .then(({ newSourceList, newDestinationList }) => {
+          setDoneItems(newSourceList);
+          setDoingItems(newDestinationList);
+        })
+        .catch(console.error);
     }
   };
 
