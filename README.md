@@ -33,8 +33,8 @@
   - [X] Move WIP Challenges between status
 - [X] Add graphql linter to ensure all queries/mutations are valid
 - [X] Send JWT in request header
-- [ ] Better delineate public/private pages
-  - [ ] Make `WipChallengesPage` public
+- [X] Better delineate public/private pages
+  - [X] Make `WipChallengesPage` public
 - [ ] Polir telas
   - [X] Beautiful DND
     - [X] Implement Single list

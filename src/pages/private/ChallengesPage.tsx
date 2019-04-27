@@ -2,9 +2,9 @@ import React from "react";
 
 import gql from "graphql-tag";
 import { Query, QueryResult } from "react-apollo";
-import ChallengeList from "../components/ChallengeList";
-import RelativeLink from "../components/RelativeLink";
-import "../styles/ChallengesPage.css";
+import ChallengeList from "../../components/ChallengeList";
+import RelativeLink from "../../components/RelativeLink";
+import "../../styles/pages/ChallengesPage.css";
 
 const ChallengesPage: React.FunctionComponent = () => {
   const renderChallengeList = () => {

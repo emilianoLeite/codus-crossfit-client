@@ -3,9 +3,9 @@ import gql from "graphql-tag";
 import React from "react";
 import { Mutation, MutationFn, MutationResult } from "react-apollo";
 
-import ChallengeForm from "../components/ChallengeForm";
-import * as Redirectable from "../components/Redirectable";
-import { IEditableChallenge } from "../interfaces/IChallenge";
+import ChallengeForm from "../../components/ChallengeForm";
+import * as Redirectable from "../../components/Redirectable";
+import { IEditableChallenge } from "../../interfaces/IChallenge";
 
 interface IState {
   isChallengeCreated: boolean;

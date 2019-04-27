@@ -5,12 +5,12 @@ import { Mutation, MutationFn, MutationResult } from "react-apollo";
 import { connect } from "react-redux";
 import { compose } from "redux-starter-kit";
 
-import LoginForm, { ILoginForm } from "../components/LoginForm";
-import * as Redirectable from "../components/Redirectable";
-import { authenticate, setCurrentUser } from "../redux/actions";
-import { IReduxAuthenticationProps } from "../redux/reducers/AuthenticationReducer";
+import LoginForm, { ILoginForm } from "../../components/LoginForm";
+import * as Redirectable from "../../components/Redirectable";
+import { authenticate, setCurrentUser } from "../../redux/actions";
+import { IReduxAuthenticationProps } from "../../redux/reducers/AuthenticationReducer";
 
-interface IProps extends Redirectable.IRedirectableProps, IReduxAuthenticationProps {}
+interface IProps extends Redirectable.IRedirectableProps, IReduxAuthenticationProps { }
 
 interface IState {
   from: object;

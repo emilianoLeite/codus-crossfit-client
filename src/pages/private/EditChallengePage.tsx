@@ -4,9 +4,9 @@ import React from "react";
 import { Mutation, MutationFn, Query, QueryResult, MutationResult } from "react-apollo";
 
 import { RouteComponentProps } from "react-router";
-import ChallengeForm from "../components/ChallengeForm";
-import * as Redirectable from "../components/Redirectable";
-import { IEditableChallenge } from "../interfaces/IChallenge";
+import ChallengeForm from "../../components/ChallengeForm";
+import * as Redirectable from "../../components/Redirectable";
+import { IEditableChallenge } from "../../interfaces/IChallenge";
 
 interface IProps extends Redirectable.IRedirectableProps, RouteComponentProps<{id: string}> {}
 
