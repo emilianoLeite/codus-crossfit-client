@@ -48,7 +48,7 @@
         - [X] Ask email when moving from TODO
     - [X] Add `ChallengesBoardColumn` to `Board`
   - [ ] styles
-    - [ ] Add emotion
+    - [X] Add emotion
     - [ ] Add `min-width` to board columns
     - [ ] Add title to board columns
 
