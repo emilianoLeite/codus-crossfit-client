@@ -30,3 +30,7 @@ export const boardItemStyle = css`
   padding: 8px 15px;
   margin: 20px 0px;
 `;
+
+export const boardItemTitle = css`
+  margin-top: 0px;
+`;

@@ -5,6 +5,7 @@ import { IWipChallenge } from "../interfaces/IWipChallenge";
 import {
   boardColumnStyle,
   boardItemStyle,
+  boardItemTitle,
 } from "../styles/components/Board";
 interface IProps {
   title: string;
@@ -19,7 +20,7 @@ export default function WipChallengesBoardColumn({ droppableId, items, title }: 
         <div
           className={boardColumnStyle}
           ref={provided.innerRef}>
-          <h2>{title}</h2>
+          <h2 className={boardItemTitle}>{title}</h2>
           {items.map((item, index) => (
             <Draggable
               key={item.id}
