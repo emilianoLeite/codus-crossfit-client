@@ -4,7 +4,7 @@ import gql from "graphql-tag";
 import { Query, QueryResult } from "react-apollo";
 import ChallengeList from "../../components/ChallengeList";
 import RelativeLink from "../../components/RelativeLink";
-import "../../styles/pages/ChallengesPage.css";
+import { containerStyle } from "../../styles/pages/ChallengesPage";
 
 const ChallengesPage: React.FunctionComponent = () => {
   const renderChallengeList = () => {
@@ -27,7 +27,7 @@ const ChallengesPage: React.FunctionComponent = () => {
   };
 
   return (
-    <div className="challenges-page-container">
+    <div className={containerStyle}>
       <RelativeLink to="/new">Create Challenge</RelativeLink>
       {renderChallengeList()}
     </div>
