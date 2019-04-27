@@ -64,10 +64,10 @@ class LoginPage extends React.Component<IProps, IState> {
         variables: { email, password },
       });
 
-      const user = response && response.data.signIn.user;
+      const { user, jwt } = response && response.data.signIn;
 
       this.props.authenticate();
-      this.props.setCurrentUser(user);
+      this.props.setCurrentUser({ ...user, jwt });
       this.props.redirect();
     };
   }

@@ -1,9 +1,9 @@
 import React, { FormEvent } from "react";
-import { IChallenge } from "../interfaces/IChallenge";
+import { IEditableChallenge } from "../interfaces/IChallenge";
 
 interface IProps {
-  challenge?: IChallenge;
-  onSubmit: (challenge: IChallenge) => void;
+  challenge?: IEditableChallenge;
+  onSubmit: (challenge: IEditableChallenge) => void;
 }
 
 const ChallengeForm: React.FunctionComponent<IProps> = ({ challenge, onSubmit }: IProps) => {

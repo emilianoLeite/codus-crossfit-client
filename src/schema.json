@@ -374,12 +374,6 @@
         "interfaces": null,
         "enumValues": [
           {
-            "name": "TODO",
-            "description": "",
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "DOING",
             "description": "",
             "isDeprecated": false,

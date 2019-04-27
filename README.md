@@ -26,19 +26,49 @@
   - [X] List Challenges
   - [X] Create Challenge
   - [X] Update Challenge
-  - [ ] Delete Challenge
   - [X] HOC on redirectable components
-- [ ] CRUD WipChallenges
+- [X] CRUD WipChallenges
   - [X] List WIP Challenges
-  - [ ] Create WIP Challenges
-  - [ ] Move WIP Challenges between status
+  - [X] Create WIP Challenges
+  - [X] Move WIP Challenges between status
 - [X] Add graphql linter to ensure all queries/mutations are valid
+- [X] Send JWT in request header
+- [ ] Better delineate public/private pages
+  - [ ] Make `WipChallengesPage` public
 - [ ] Polir telas
+  - [X] Beautiful DND
+    - [X] Implement Single list
+    - [X] Disallow moving itens between same column
+    - [X] Move cards between columns
+      - [X] [Bug] Unlink cards with same index across different column
+    - [X] Trigger graphQL mutation when cards are moved between columns
+      - [X] Trigger when challenge is moved to Done
+      - [X] Trigger when challenge is moved to Doing
+      - [X] Trigger when challenge is moved from TODO to Doing
+        - [X] Ask email when moving from TODO
+    - [X] Add `ChallengesBoardColumn` to `Board`
+  - [ ] styles
+    - [ ] Add emotion
+    - [ ] Add `min-width` to board columns
+    - [ ] Add title to board columns
 
 ### v0.2
-- [ ] Transform all classes into hooks
+
+- [ ] Save JWT on LocalStorage/Cookie
+  - [ ] Clean Storage/Cookie when JWT is expired
+- [ ] CRUD Challenges
+  - [ ] Delete Challenge?
+- [ ] CRUD WipChallenges
+  - [ ] Delete WIP Challenge
+- [ ] Upgrade to "typescript": "^3.4" and add incremental flag
+- [ ] Use [codegen](https://graphql-code-generator.com/)
+- [ ] Cleanup Beautiful DND comps
+  - [ ] Add direction abstraction
+  - [ ] Investigate creating mutations without react-apollo
+- [ ] Use Suspense + lazy
 - [ ] Improve `History.LocationState` type
-- [ ] Use Suspense?
+- [ ] Transform all classes into hooks
+- [ ] Deploy using `now`
 
 ## Issues
 

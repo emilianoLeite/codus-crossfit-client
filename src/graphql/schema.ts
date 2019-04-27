@@ -1,5 +1,5 @@
 import { buildClientSchema, GraphQLError, IntrospectionQuery} from "graphql";
-import { addMockFunctionsToSchema } from "graphql-tools";
+import { addMockFunctionsToSchema, MockList } from "graphql-tools";
 import introspectionResult from "../schema.json";
 
 const schema = buildClientSchema((introspectionResult as unknown) as IntrospectionQuery);
@@ -7,6 +7,9 @@ const schema = buildClientSchema((introspectionResult as unknown) as Introspecti
 // Add mocks, modifies schema in place
 addMockFunctionsToSchema({
   mocks: {
+    Query: () => ({
+      wipChallenges: () => new MockList([5, 10])
+    }),
     DateTime: () => new Date("2019-02-20"),
     Mutation: () => ({
       createChallenge: (obj: any, { title }: any) => {
