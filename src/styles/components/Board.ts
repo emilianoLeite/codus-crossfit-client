@@ -1,4 +1,4 @@
-import { css } from "@emotion/core";
+import { css } from "emotion";
 
 export const boardStyle = css`
   display: grid;
@@ -22,10 +22,6 @@ export const boardColumnStyle = css`
     &:first-of-type {
       grid-column-start: 1;
     }
-  }
-
-  h2 {
-    margin: 0
   }
 `;
 

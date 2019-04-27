@@ -1,7 +1,4 @@
-/** @jsx jsx */
-
 import React from "react";
-import { jsx } from "@emotion/core";
 import gql from "graphql-tag";
 import { Query, QueryResult } from "react-apollo";
 
@@ -30,7 +27,7 @@ const ChallengesPage: React.FunctionComponent = () => {
   };
 
   return (
-    <div css={containerStyle}>
+    <div className={containerStyle}>
       <RelativeLink to="/new">Create Challenge</RelativeLink>
       {renderChallengeList()}
     </div>

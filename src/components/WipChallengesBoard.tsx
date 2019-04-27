@@ -1,7 +1,5 @@
-/** @jsx jsx */
 
 import React from "react";
-import { jsx } from "@emotion/core";
 import { DraggableLocation, DropResult, DragDropContext } from "react-beautiful-dnd";
 
 import { IWipChallenge, isDoing, isDone } from "../interfaces/IWipChallenge";
@@ -96,7 +94,7 @@ export default function WipChallengesBoard({ challenges, wipChallenges, mutation
   };
 
   return (
-    <div css={boardStyle}>
+    <div className={boardStyle}>
       <DragDropContext onDragEnd={onDragEnd}>
         <ChallengesBoardColumn title="TODO" items={challenges} />
         <WipChallengesBoardColumn droppableId="doingWipChallenges" title="Doing" items={doingItems} />
