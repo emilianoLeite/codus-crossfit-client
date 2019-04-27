@@ -1,6 +1,10 @@
+/** @jsx jsx */
+
 import React from "react";
-import { IWipChallenge, isDoing, isDone } from "../interfaces/IWipChallenge";
+import { jsx } from "@emotion/core";
 import { DraggableLocation, DropResult, DragDropContext } from "react-beautiful-dnd";
+
+import { IWipChallenge, isDoing, isDone } from "../interfaces/IWipChallenge";
 import WipChallengesBoardColumn from "./WipChallengesBoardColumn";
 import { boardStyle } from "../styles/components/Board";
 import { MutationFn } from "react-apollo";
@@ -92,11 +96,11 @@ export default function WipChallengesBoard({ challenges, wipChallenges, mutation
   };
 
   return (
-    <div className={boardStyle}>
+    <div css={boardStyle}>
       <DragDropContext onDragEnd={onDragEnd}>
-        <ChallengesBoardColumn items={challenges} />
-        <WipChallengesBoardColumn droppableId="doingWipChallenges" items={doingItems} />
-        <WipChallengesBoardColumn droppableId="doneWipChallenges" items={doneItems} />
+        <ChallengesBoardColumn title="TODO" items={challenges} />
+        <WipChallengesBoardColumn droppableId="doingWipChallenges" title="Doing" items={doingItems} />
+        <WipChallengesBoardColumn droppableId="doneWipChallenges" title="Done" items={doneItems} />
       </DragDropContext>
     </div>
   );
