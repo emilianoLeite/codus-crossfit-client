@@ -16,7 +16,7 @@ export default function ChallengesBoardColumn({ items }: IProps) {
           {items.map((item, index) => (
             <Draggable
               key={item.id}
-              draggableId={item.id}
+              draggableId={`todoChallenges_${item.id}`}
               index={index}>
               {(provided, snapshot) => (
                 <div

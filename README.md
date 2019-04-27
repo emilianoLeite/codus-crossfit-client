@@ -36,11 +36,11 @@
 - [ ] Better delineate public/private pages
   - [ ] Make `WipChallengesPage` public
 - [ ] Polir telas
-  - [ ] Beautiful DND
+  - [X] Beautiful DND
     - [X] Implement Single list
     - [X] Disallow moving itens between same column
-    - [ ] Move cards between columns
-      - [ ] [Bug] Unlink cards with same index across different column
+    - [X] Move cards between columns
+      - [X] [Bug] Unlink cards with same index across different column
     - [X] Trigger graphQL mutation when cards are moved between columns
       - [X] Trigger when challenge is moved to Done
       - [X] Trigger when challenge is moved to Doing

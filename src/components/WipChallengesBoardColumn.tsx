@@ -17,7 +17,7 @@ export default function WipChallengesBoardDoingColumn({ droppableId, items }: IP
           {items.map((item, index) => (
             <Draggable
               key={item.id}
-              draggableId={item.id}
+              draggableId={`${droppableId}_${item.id}`}
               index={index}>
               {(provided, snapshot) => (
                 <div
