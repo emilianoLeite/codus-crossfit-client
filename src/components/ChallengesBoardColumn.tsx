@@ -4,6 +4,7 @@ import { IChallenge } from "../interfaces/IChallenge";
 import {
   boardColumnStyle,
   boardItemStyle,
+  boardItemTitle,
 } from "../styles/components/Board";
 
 
@@ -19,7 +20,7 @@ export default function ChallengesBoardColumn({ title, items }: IProps) {
         <div
           className={boardColumnStyle}
           ref={provided.innerRef}>
-          <h2>{title}</h2>
+          <h2 className={boardItemTitle}>{title}</h2>
           {items.map((item, index) => (
             <Draggable
               key={item.id}
