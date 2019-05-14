@@ -1,7 +1,10 @@
+import { IChallengeSubset } from "./IChallenge";
+
 export interface IWipChallenge {
   id: string;
   userEmail: string;
   status: ChallengeStatus;
+  challenge?: IChallengeSubset;
 }
 
 export enum ChallengeStatus {

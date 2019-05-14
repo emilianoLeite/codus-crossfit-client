@@ -8,3 +8,9 @@ export interface IEditableChallenge {
   title: string;
   description: string;
 }
+
+export interface IChallengeSubset {
+  id?: string;
+  title?: string;
+  description?: string;
+}

@@ -14,6 +14,9 @@ export default function WipChallengesPage() {
         id
         userEmail
         status
+        challenge {
+          title
+        }
       }
     }
   `;
@@ -24,6 +27,9 @@ export default function WipChallengesPage() {
         id
         userEmail
         status
+        challenge {
+          title
+        }
       }
     }
   `;
@@ -32,7 +38,6 @@ export default function WipChallengesPage() {
     mutation MoveWipChallenge($id: ID!, $status: ChallengeStatus) {
       moveWipChallenge(id: $id, newStatus: $status) {
         id
-        status
       }
     }
   `;

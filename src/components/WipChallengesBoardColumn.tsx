@@ -33,8 +33,11 @@ export default function WipChallengesBoardColumn({ droppableId, items, title }: 
                   ref={provided.innerRef}
                   {...provided.draggableProps}
                   {...provided.dragHandleProps}>
-                  {item.userEmail}
-                  <ChallengeModal challenge={{id: item.id, title: item.id }} />
+                  {item.challenge && item.challenge.title}
+                  <small style={{display: "block", textAlign: "right"}}>
+                    {item.userEmail.replace("@codus.com.br", "")}
+                  </small>
+                  <ChallengeModal challenge={{ id: item.id, title: item.id }} />
                 </div>
               )}
             </Draggable>
