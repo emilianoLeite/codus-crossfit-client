@@ -22,7 +22,7 @@
   - [X] [Mutations](https://www.apollographql.com/docs/react/essentials/mutations.html)
   - [X] Save in Redux
 - [X] Add "Page" convention
-- [X] CRUD Challenges
+- [ ] CRUD Challenges
   - [X] List Challenges
   - [X] Create Challenge
   - [X] Update Challenge
@@ -30,6 +30,8 @@
   - [X] HOC on redirectable components
 - [X] CRUD WipChallenges
   - [X] List WIP Challenges
+    - [X] Basic List
+    - [X] List with Challenges
   - [X] Create WIP Challenges
   - [X] Move WIP Challenges between status
 - [X] Add graphql linter to ensure all queries/mutations are valid
