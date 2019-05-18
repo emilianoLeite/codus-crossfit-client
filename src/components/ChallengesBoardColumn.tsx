@@ -6,6 +6,7 @@ import {
   boardItemStyle,
   boardItemTitle,
 } from "../styles/components/Board";
+import ChallengeModal from "./ChallengeModal";
 
 
 interface IProps {
@@ -33,6 +34,7 @@ export default function ChallengesBoardColumn({ title, items }: IProps) {
                   {...provided.draggableProps}
                   {...provided.dragHandleProps}>
                   {item.title}
+                  <ChallengeModal challenge={item} />
                 </div>
               )}
             </Draggable>

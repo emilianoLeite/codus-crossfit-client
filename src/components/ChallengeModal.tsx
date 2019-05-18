@@ -7,7 +7,7 @@ import gql from "graphql-tag";
 interface IProps extends UIModalBehaviorProps {
   challenge: {
     id: string;
-    title?: string;
+    title: string;
   };
 };
 
@@ -21,7 +21,7 @@ const ChallengeModal: React.FunctionComponent<IProps> = ({ challenge, children, 
   `;
 
   return (
-    <UIModal title={challenge.id} {...rest}>
+    <UIModal title={challenge.title} {...rest}>
       <Query query={GET_CHALLENGE_BY_ID} variables={{ id: challenge.id }}>
         {({ loading, error, data }: QueryResult) => {
           if (loading) { return <p>Loading...</p>; }
