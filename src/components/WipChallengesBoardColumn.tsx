@@ -7,6 +7,7 @@ import {
   boardItemStyle,
   boardItemTitle,
 } from "../styles/components/Board";
+import UIModal from "./UI/Modal";
 interface IProps {
   title: string;
   droppableId: string;
@@ -33,6 +34,9 @@ export default function WipChallengesBoardColumn({ droppableId, items, title }: 
                   {...provided.draggableProps}
                   {...provided.dragHandleProps}>
                   {item.userEmail}
+                  <UIModal title={item.id}>
+                    { item.userEmail }
+                  </UIModal>
                 </div>
               )}
             </Draggable>
