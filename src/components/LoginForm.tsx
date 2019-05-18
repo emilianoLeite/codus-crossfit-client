@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "antd";
 
 interface IProps {
   onSubmit: (formInputs: ILoginForm) => void;
@@ -28,7 +29,7 @@ const LoginForm: React.FunctionComponent<IProps> = (props: IProps) => {
         type="password"
         onChange={(e) => { setPassword(e.target.value); }}
       />
-      <button type="submit">Login</button>
+      <Button type="primary" htmlType="submit">Login</Button>
     </form>
   );
 };
