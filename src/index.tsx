@@ -5,6 +5,8 @@ import App from "./App";
 import configureStore from "./redux/ConfigureStore";
 import * as serviceWorker from "./serviceWorker";
 
+import "antd/es/button/style/css";
+
 injectGlobal`
   * {
     box-sizing: border-box;

@@ -1,5 +1,6 @@
 import React, { FormEvent } from "react";
 import { IEditableChallenge } from "../interfaces/IChallenge";
+import { Button } from "antd";
 
 interface IProps {
   challenge?: IEditableChallenge;
@@ -38,7 +39,7 @@ const ChallengeForm: React.FunctionComponent<IProps> = ({ challenge, onSubmit }:
           onChange={(e) => setDescription(e.target.value)}
         />
 
-        <button type="submit">Submit</button>
+        <Button type="primary" htmlType="submit">Submit</Button>
       </fieldset>
     </form>
   );
