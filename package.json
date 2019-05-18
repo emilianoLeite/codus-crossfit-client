@@ -12,6 +12,8 @@
     "schema:download": "apollo schema:download --endpoint=http://localhost:4000 src/schema.json"
   },
   "dependencies": {
+    "@types/antd": "^1.0.0",
+    "antd": "^3.18.1",
     "apollo-boost": "^0.3.1",
     "apollo-link-schema": "^1.1.6",
     "connected-react-router": "^6.3.1",
