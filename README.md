@@ -26,6 +26,7 @@
   - [X] List Challenges
   - [X] Create Challenge
   - [X] Update Challenge
+  - [X] Show Challenge
   - [X] HOC on redirectable components
 - [X] CRUD WipChallenges
   - [X] List WIP Challenges
@@ -71,6 +72,7 @@
 - [ ] Deploy using `now`
 - [ ] Share render logic between all three column components
 - [ ] Search UI libraries that do not inject global styles
+- [ ] Create WIP Challenge from Challenge show modal
 
 ## Issues
 
