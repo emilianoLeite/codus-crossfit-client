@@ -4,9 +4,12 @@ import { Modal, Icon } from "antd";
 type MouseClickEvent = React.MouseEvent<HTMLButtonElement, MouseEvent>;
 type MouseClickHandler = (e: MouseClickEvent) => void; 
 
-export interface UIModalProps {
+export interface UIModalBehaviorProps {
   handleOk?: MouseClickHandler;
   handleCancel?: MouseClickHandler;
+};
+
+export interface UIModalProps extends UIModalBehaviorProps {
   title: string;
   children?: React.ReactNode;
 };
