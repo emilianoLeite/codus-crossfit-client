@@ -4,7 +4,7 @@ import { Query, QueryResult } from "react-apollo";
 
 import ChallengeList from "../../components/ChallengeList";
 import RelativeLink from "../../components/RelativeLink";
-import { containerStyle } from "../../styles/pages/ChallengesPage";
+import { Button } from "antd";
 
 const ChallengesPage: React.FunctionComponent = () => {
   const renderChallengeList = () => {
@@ -27,8 +27,10 @@ const ChallengesPage: React.FunctionComponent = () => {
   };
 
   return (
-    <div className={containerStyle}>
-      <RelativeLink to="/new">Create Challenge</RelativeLink>
+    <div>
+      <Button type="primary" style={{ margin: "15px 0 15px 20px" }}>
+        <RelativeLink to="/new">Create Challenge</RelativeLink>
+      </Button>
       {renderChallengeList()}
     </div>
   );
