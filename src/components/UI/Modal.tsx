@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, Icon } from "antd";
+import { Modal, Button } from "antd";
 
 type MouseClickEvent = React.MouseEvent<HTMLButtonElement, MouseEvent>;
 type MouseClickHandler = (e: MouseClickEvent) => void; 
@@ -27,13 +27,13 @@ const UIModal: React.FunctionComponent<UIModalProps> = ({ children, handleCancel
   };
 
   const onCancel = (e: MouseClickEvent) => {
-    handleCancel && handleCancel(e);    
+    handleCancel && handleCancel(e);
     setVisible(false);
   };
 
   return (
     <React.Fragment>
-      <Icon type="eye" onClick={showModal} />
+      <Button shape="circle-outline" icon="eye" onClick={showModal} style={{marginLeft: "3px"}} />
       <Modal
         title={title}
         visible={visible}
