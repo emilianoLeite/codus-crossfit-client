@@ -1,6 +1,8 @@
 import React, { FormEvent } from "react";
+import { Button, Input, Icon } from "antd";
+
 import { IEditableChallenge } from "../interfaces/IChallenge";
-import { Button } from "antd";
+import { formLabel } from "../styles/components/Form";
 
 interface IProps {
   challenge?: IEditableChallenge;
@@ -25,21 +27,24 @@ const ChallengeForm: React.FunctionComponent<IProps> = ({ challenge, onSubmit }:
           }
         </legend>
 
-        <label htmlFor="title">Title</label>
-        <input
+        <label className={formLabel} htmlFor="title">Title</label>
+        <Input
           name="title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
 
-        <label htmlFor="description">Description</label>
-        <input
+        <label className={formLabel} htmlFor="description">Description</label>
+        <Input
           name="description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
 
-        <Button type="primary" htmlType="submit">Submit</Button>
+        <Button type="primary" htmlType="submit" style={{marginTop: "10px"}}>
+          <Icon type="check" />
+          Submit
+        </Button>
       </fieldset>
     </form>
   );
