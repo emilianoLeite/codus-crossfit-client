@@ -6,6 +6,7 @@ import configureStore from "./redux/ConfigureStore";
 import * as serviceWorker from "./serviceWorker";
 
 import "antd/es/button/style/css";
+import "antd/es/card/style/css";
 import "antd/es/form/style/css";
 import "antd/es/input/style/css";
 import "antd/es/list/style/css";
