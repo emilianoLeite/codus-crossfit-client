@@ -16,7 +16,7 @@
     "apollo-link-schema": "^1.1.6",
     "connected-react-router": "^6.3.1",
     "emotion": "^10.0.9",
-    "graphql": "14.2.1",
+    "graphql": "14.3.1",
     "graphql-tools": "^4.0.4",
     "react": "^16.8.2",
     "react-apollo": "^2.4.1",
