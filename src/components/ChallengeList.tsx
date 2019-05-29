@@ -1,10 +1,10 @@
 import React from "react";
-import { IChallenge } from "../interfaces/IChallenge";
+import { IChallengeItemList } from "../interfaces/IChallenge";
 import RelativeLink from "./RelativeLink";
 import { List, Button, Icon } from "antd";
 
 interface IProps {
-  challenges: IChallenge[];
+  challenges: IChallengeItemList[];
   header?: React.ReactNode;
   footer?: React.ReactNode;
 }
@@ -15,7 +15,7 @@ const ChallengeList: React.FunctionComponent<IProps> = ({ challenges, header, fo
     footer={footer}
     bordered={true}
     dataSource={challenges}
-    renderItem={(challenge: IChallenge) => (
+    renderItem={(challenge: IChallengeItemList) => (
       <List.Item>
         {challenge.title}
         <Button shape="circle" style={{ marginLeft: "5px" }}>
