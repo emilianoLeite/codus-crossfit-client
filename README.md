@@ -55,6 +55,8 @@
     - [X] Add emotion
     - [X] Add `min-width` to board columns
     - [X] Add title to board columns
+- [ ] Add proper description and instructions to README
+  - [ ] Move ROADMAP to separate file
 
 ### v0.2
 
