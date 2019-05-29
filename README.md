@@ -22,11 +22,12 @@
   - [X] [Mutations](https://www.apollographql.com/docs/react/essentials/mutations.html)
   - [X] Save in Redux
 - [X] Add "Page" convention
-- [ ] CRUD Challenges
+- [X] CRUD Challenges
   - [X] List Challenges
   - [X] Create Challenge
   - [X] Update Challenge
   - [X] Show Challenge
+    - [X] Fix interfaces
   - [X] HOC on redirectable components
 - [X] CRUD WipChallenges
   - [X] List WIP Challenges
@@ -78,6 +79,9 @@
 
 ## Issues
 
+- [ ] User cannot select text inside modal (card in the background is being dragged instead)
+- [ ] When redirected, challenge list does not contain the newly created challenge. (Cache problem)
+  - Newly created challenge also does not show in WipChallengesPage
 - [X] Correctly destruct `location.state.from`
 
 ## Warnings

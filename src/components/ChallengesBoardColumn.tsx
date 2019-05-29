@@ -1,6 +1,6 @@
 import React from "react";
 import { Droppable, Draggable } from "react-beautiful-dnd";
-import { IChallenge } from "../interfaces/IChallenge";
+import { IChallengeItem } from "../interfaces/IChallenge";
 import {
   boardColumnStyle,
   boardItemStyle,
@@ -11,7 +11,7 @@ import ChallengeModal from "./ChallengeModal";
 
 interface IProps {
   title: string;
-  items: IChallenge[];
+  items: IChallengeItem[];
 }
 
 export default function ChallengesBoardColumn({ title, items }: IProps) {
