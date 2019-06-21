@@ -17,7 +17,7 @@
     "connected-react-router": "^6.3.1",
     "emotion": "^10.0.9",
     "graphql": "14.2.1",
-    "graphql-tools": "^4.0.4",
+    "graphql-tools": "^4.0.5",
     "react": "^16.8.2",
     "react-apollo": "^2.4.1",
     "react-beautiful-dnd": "^11.0.0",
