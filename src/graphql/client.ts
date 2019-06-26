@@ -1,14 +1,14 @@
 import { ApolloClient } from "apollo-boost";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { setContext } from "apollo-link-context";
-// import { createHttpLink } from "apollo-link-http";
-import { SchemaLink } from "apollo-link-schema";
+import { createHttpLink } from "apollo-link-http";
+// import { SchemaLink } from "apollo-link-schema";
 
 import schema from "./schema";
 import { Store } from "redux";
 
-const localSchema = new SchemaLink({ schema });
-// const remoteServer = createHttpLink({ uri: "http://localhost:4000" });
+// const localSchema = new SchemaLink({ schema });
+const remoteServer = createHttpLink({ uri: "https://codus-crossfit-server.herokuapp.com/" });
 
 export default (store: Store) => {
   const authLink = setContext((_, { headers }) => {
@@ -26,8 +26,8 @@ export default (store: Store) => {
 
   return new ApolloClient({
     cache: new InMemoryCache(),
-    link: authLink.concat(localSchema),
-    // link: authLink.concat(remoteServer),
+    // link: authLink.concat(localSchema),
+    link: authLink.concat(remoteServer),
   });
 };
 
