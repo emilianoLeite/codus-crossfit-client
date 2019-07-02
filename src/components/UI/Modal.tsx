@@ -1,7 +1,7 @@
 import React from "react";
 import { Modal, Button } from "antd";
 
-type MouseClickEvent = React.MouseEvent<HTMLButtonElement, MouseEvent>;
+type MouseClickEvent = React.MouseEvent<HTMLElement, MouseEvent>;
 type MouseClickHandler = (e: MouseClickEvent) => void; 
 
 export interface UIModalBehaviorProps {

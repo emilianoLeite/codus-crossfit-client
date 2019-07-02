@@ -35,7 +35,8 @@ const ChallengeForm: React.FunctionComponent<IProps> = ({ challenge, onSubmit }:
         />
 
         <label className={formLabel} htmlFor="description">Description</label>
-        <Input
+        <Input.TextArea
+          autosize={{ minRows: 2, maxRows: 10}}
           name="description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
