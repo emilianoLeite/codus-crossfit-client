@@ -1,16 +1,19 @@
 
 import React from "react";
 import { Droppable, Draggable } from "react-beautiful-dnd";
-import { IWipChallenge } from "../interfaces/IWipChallenge";
+
+import { IWipChallengeItem } from "../interfaces/IWipChallenge";
 import {
   boardColumnStyle,
   boardItemStyle,
   boardItemTitle,
 } from "../styles/components/Board";
+import ChallengeModal from "./ChallengeModal";
+
 interface IProps {
   title: string;
   droppableId: string;
-  items: IWipChallenge[];
+  items: IWipChallengeItem[];
 }
 
 export default function WipChallengesBoardColumn({ droppableId, items, title }: IProps) {
@@ -32,7 +35,21 @@ export default function WipChallengesBoardColumn({ droppableId, items, title }: 
                   ref={provided.innerRef}
                   {...provided.draggableProps}
                   {...provided.dragHandleProps}>
-                  {item.userEmail}
+                  { (() => {
+                    const {challenge} = item;
+                    if (challenge) {
+                      return (
+                        <React.Fragment>
+                          {challenge.title}
+                          <small style={{ display: "block", textAlign: "right" }}>
+                            {item.userEmail.replace("@codus.com.br", "")}
+                          </small>
+                          <ChallengeModal challenge={challenge} />
+                        </React.Fragment>
+                      );
+                    }
+                    return null;
+                  })() }
                 </div>
               )}
             </Draggable>

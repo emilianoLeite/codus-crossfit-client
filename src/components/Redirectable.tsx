@@ -9,55 +9,43 @@ export interface IRedirectableProps {
   redirect: RedirectableCallback;
 }
 
-function getComponentName<T>(reactComponent: React.ComponentType<T>): string {
-  return reactComponent.displayName || reactComponent.name || "Component";
-}
-
 export function HOC<P extends IRedirectableProps>(Component: React.ComponentType<P>) {
   interface IProps {
     location: Location;
   }
-  interface IState {
-    redirectTo: LocationDescriptorObject;
-    redirectToReferrer: boolean;
+
+  function defaultDestination(location: IProps["location"]): LocationDescriptorObject {
+    const { from = { pathname: "/challenges" } } = location.state || {};
+    return from;
   }
 
-  return class WrappedComponent extends React.Component<P & IProps, IState> {
-    public static displayName = `Redirectable(${getComponentName(Component)})`;
+  const WrappedComponent: React.FunctionComponent<P & IProps> = (props) => {
+    const [redirectTo, setRedirectTo] = React.useState({});
+    const [redirectToReferrer, setRedirectToReferrer] = React.useState(false);
 
-    public state = {
-      redirectTo: {},
-      redirectToReferrer: false,
-    };
 
-    public render() {
-      if (this.state.redirectToReferrer) {
-        return <Redirect to={this.state.redirectTo} />;
-      } else {
-        return <Component {...this.props} redirect={this.handleRedirect} />;
-      }
-    }
-
-    private handleRedirect: RedirectableCallback = (pathname) => {
-      const destination = this.destinationFor(pathname);
-
-      this.setState({
-        redirectTo: destination,
-        redirectToReferrer: true,
-      });
-    }
-
-    private destinationFor = (pathname?: string): LocationDescriptorObject => {
+    const destinationFor = (pathname?: string): LocationDescriptorObject => {
       if (pathname) {
         return { pathname };
       } else {
-        return this.defaultDestination;
+        return defaultDestination(props.location);
       }
-    }
+    };
 
-    private get defaultDestination(): LocationDescriptorObject {
-      const { from = { pathname: "/challenges" } } = this.props.location.state || {};
-      return from;
+    const handleRedirect: RedirectableCallback = (pathname) => {
+      const destination = destinationFor(pathname);
+
+      setRedirectTo(destination);
+      setRedirectToReferrer(true);
+    };
+
+    if (redirectToReferrer) {
+      return <Redirect to={redirectTo} />;
+    } else {
+      return <Component {...props} redirect={handleRedirect} />;
     }
   };
+
+  WrappedComponent.displayName = Component.displayName || Component.name || "Component";
+  return WrappedComponent;
 }

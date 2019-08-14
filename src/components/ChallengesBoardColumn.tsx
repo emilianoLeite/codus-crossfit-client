@@ -1,16 +1,16 @@
 import React from "react";
 import { Droppable, Draggable } from "react-beautiful-dnd";
-import { IChallenge } from "../interfaces/IChallenge";
+import { IChallengeItem } from "../interfaces/IChallenge";
 import {
   boardColumnStyle,
-  boardItemStyle,
   boardItemTitle,
 } from "../styles/components/Board";
+import ChallengesBoardItem from "./ChallengeBoardItem";
 
 
 interface IProps {
   title: string;
-  items: IChallenge[];
+  items: IChallengeItem[];
 }
 
 export default function ChallengesBoardColumn({ title, items }: IProps) {
@@ -27,13 +27,12 @@ export default function ChallengesBoardColumn({ title, items }: IProps) {
               draggableId={`todoChallenges_${item.id}`}
               index={index}>
               {(provided, snapshot) => (
-                <div
-                  className={boardItemStyle}
+                <ChallengesBoardItem
+                  item={item}
                   ref={provided.innerRef}
                   {...provided.draggableProps}
-                  {...provided.dragHandleProps}>
-                  {item.title}
-                </div>
+                  {...provided.dragHandleProps}
+                />
               )}
             </Draggable>
           ))}

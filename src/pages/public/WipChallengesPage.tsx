@@ -4,7 +4,7 @@ import { Mutation, Query, QueryResult, MutationResult, MutationFn } from "react-
 import WipChallengesBoard from "../../components/WipChallengesBoard";
 
 export default function WipChallengesPage() {
-  const query = gql`
+  const QUERY_BOARD_ITEMS = gql`
     {
       challenges {
         id
@@ -14,6 +14,10 @@ export default function WipChallengesPage() {
         id
         userEmail
         status
+        challenge {
+          id
+          title
+        }
       }
     }
   `;
@@ -24,6 +28,10 @@ export default function WipChallengesPage() {
         id
         userEmail
         status
+        challenge {
+          id
+          title
+        }
       }
     }
   `;
@@ -32,13 +40,12 @@ export default function WipChallengesPage() {
     mutation MoveWipChallenge($id: ID!, $status: ChallengeStatus) {
       moveWipChallenge(id: $id, newStatus: $status) {
         id
-        status
       }
     }
   `;
 
   return (
-    <Query query={query}>
+    <Query query={QUERY_BOARD_ITEMS}>
       {({ loading, error, data }: QueryResult) => {
         if (loading) { return <p>Loading...</p>; }
         if (error) { return <p>Error ☹</p>; }

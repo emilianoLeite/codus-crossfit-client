@@ -2,23 +2,23 @@
 import React from "react";
 import { DraggableLocation, DropResult, DragDropContext } from "react-beautiful-dnd";
 
-import { IWipChallenge, isDoing, isDone } from "../interfaces/IWipChallenge";
+import { isDoing, isDone, IWipChallengeItem } from "../interfaces/IWipChallenge";
 import WipChallengesBoardColumn from "./WipChallengesBoardColumn";
 import { boardStyle } from "../styles/components/Board";
 import { MutationFn } from "react-apollo";
-import { IChallenge } from "../interfaces/IChallenge";
+import { IChallengeItem } from "../interfaces/IChallenge";
 import ChallengesBoardColumn from "./ChallengesBoardColumn";
 
 interface IProps {
-  challenges: IChallenge[];
-  wipChallenges: IWipChallenge[];
+  challenges: IChallengeItem[];
+  wipChallenges: IWipChallengeItem[];
   mutations: {
     createWipChallengeMutation: MutationFn;
     moveWipChallengeMutation: MutationFn;
   };
 }
 
-const move = (sourceList: IWipChallenge[], destinationList: IWipChallenge[], source: DraggableLocation, destination: DraggableLocation) => {
+const move = (sourceList: IWipChallengeItem[], destinationList: IWipChallengeItem[], source: DraggableLocation, destination: DraggableLocation) => {
 
   const newSourceList = Array.from(sourceList);
 
@@ -31,15 +31,18 @@ const move = (sourceList: IWipChallenge[], destinationList: IWipChallenge[], sou
 };
 
 export default function WipChallengesBoard({ challenges, wipChallenges, mutations }: IProps) {
-  const doingWipChallenges = (wipChallenges as IWipChallenge[]).filter(isDoing);
-  const doneWipChallenges = (wipChallenges as IWipChallenge[]).filter(isDone);
+  const doingWipChallenges = (wipChallenges as IWipChallengeItem[]).filter(isDoing);
+  const doneWipChallenges = (wipChallenges as IWipChallengeItem[]).filter(isDone);
 
   const [doingItems, setDoingItems] = React.useState(doingWipChallenges);
   const [doneItems, setDoneItems] = React.useState(doneWipChallenges);
 
-  const stateMapping: any = {
-    doingWipChallenges: doingItems,
-    doneWipChallenges: doneItems
+  function stateMapping(droppableId: string): IWipChallengeItem[] {
+    switch (droppableId) {
+      case "doingWipChallenges": return doingItems;
+      case "doneWipChallenges": return doneItems;
+      default: return [];
+    }
   };
 
   const onDragEnd = (result: DropResult) => {
@@ -48,8 +51,8 @@ export default function WipChallengesBoard({ challenges, wipChallenges, mutation
     // dropped outside the list
     if (!destination) { return; }
 
-    const sourceList = stateMapping[source.droppableId];
-    const destinationList = stateMapping[destination.droppableId];
+    const sourceList = stateMapping(source.droppableId);
+    const destinationList = stateMapping(destination.droppableId);
     const createWipChallenge = async (challengeId: string, email: string) => {
       const result = await mutations.createWipChallengeMutation(
         { variables: { challengeId, email } }

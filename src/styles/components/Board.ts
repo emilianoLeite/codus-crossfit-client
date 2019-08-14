@@ -2,7 +2,7 @@ import { css } from "emotion";
 
 export const boardStyle = css`
   display: grid;
-  grid-template-columns: 1fr repeat(3, 240px) 1fr;
+  grid-template-columns: 1fr repeat(3, 300px) 1fr;
   @media (max-width: 450px) {
     grid-template-columns: repeat(3, 180px);
     overflow-x: scroll;
