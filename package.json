@@ -27,7 +27,7 @@
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0",
     "redux": "^4.0.1",
-    "redux-starter-kit": "^0.5.1"
+    "redux-starter-kit": "^1.0.1"
   },
   "devDependencies": {
     "@types/antd": "^1.0.0",
