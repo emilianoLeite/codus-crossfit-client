@@ -14,7 +14,7 @@ import {
 } from "./pages/public";
 import { history } from "./redux/ConfigureStore";
 
-const App: React.FunctionComponent<{ store: Store }> = ({ store }) =>  (
+const App: React.FunctionComponent<{ store: Store }> = ({ store }) => (
   <ReduxProvider store={store}>
     <ConnectedRouter history={history}>
       <ApolloProvider client={client(store)}>

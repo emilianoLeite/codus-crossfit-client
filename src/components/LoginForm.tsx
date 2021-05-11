@@ -10,7 +10,7 @@ export interface ILoginForm {
   password: string;
 }
 
-const LoginForm: React.FunctionComponent<IProps> = (props: IProps) => {
+const LoginForm: React.FunctionComponent<IProps> = (props) => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
